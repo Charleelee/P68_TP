@@ -4,12 +4,57 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="Jorel Amthor & Charles-Élie Bedard"/>
     <title></title>
+    <link rel="stylesheet" href="assets/font-awesome-4.3.0/css/font-awesome.css">
     <link rel="stylesheet" href="assets/style/main.css"/>
 </head>
 <body>
-<div id="wrapper">
-
-</div>
+    <div id="form_wrapper">
+        <form method="get" id="form1">
+            <header>Inscrivez-vous</header>
+            <fieldset>
+                <label class="input_label">
+                    <input type="text" required="required" autofocus="autofocus" placeholder="Nom d'utilisateur"/>
+                    <i class="input_icon fa fa-user"></i>
+                </label>
+                <label class="input_label">
+                    <input type="text" required="required" placeholder="Adresse e-mail"/>
+                    <i class="input_icon fa fa-envelope-o"></i>
+                </label>
+                <label class="input_label">
+                    <input type="text" required="required" placeholder="Mot de passe"/>
+                    <i class="input_icon fa fa-lock"></i>
+                </label>
+                <label class="input_label">
+                    <input type="text" required="required" placeholder="Confirmer le mot de passe"/>
+                    <i class="input_icon fa fa-lock"></i>
+                </label>
+            </fieldset>
+            <fieldset class="info_civil">
+                <section class="align">
+                    <label class="input_label">
+                        <input type="text" required="required" placeholder="Nom"/>
+                    </label>
+                </section>
+                <section class="align">
+                    <label class="input_label">
+                        <input type="text" required="required" placeholder="Prénom"/>
+                    </label>
+                </section>
+                <section>
+                    <label class="input_label">
+                        <select name="Genre">
+                            <option selected="selected">Genre</option>
+                            <option>Homme</option>
+                            <option>Femme</option>
+                        </select>
+                    </label>
+                </section>
+            </fieldset>
+            <footer>
+                <button>Suivant</button>
+            </footer>
+        </form>
+    </div>
 <script src="assets/script/main.js"></script>
 </body>
 </html>    

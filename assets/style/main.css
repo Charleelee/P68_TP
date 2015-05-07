@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-image: url(../img/body_bg.jpg);
+    background-size: cover;
+}
+
+header {
+    padding: 20px 30px;
+    background-color: rgba(248,248,248,.9);
+    font-size:25px;
+    color: #232323;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+#form1 {
+    font:13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(188, 188, 188, 0.30);
+}
+
+#form_wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+fieldset{
+    padding:25px 30px 5px;
+    background-color: rgba(255,255,255,.9);
+    border: none;
+    margin: 0;
+    border-top:1px solid rgba(0,0,0,.1)
+}
+
+.input_label{
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, select{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 39px;
+    padding: 6px 40px 6px 10px;
+    outline: none;
+    border: solid 2px #dedede;
+    background: #fff;
+    -webkit-transition: border-color 1s ease;
+    -moz-transition: border-color 1s ease, background-   1s ease;
+    -o-transition: border-color 1s ease, background-color 2s ease;
+    transition: border-color 1s ease, background-color 2s ease;
+}
+
+select{
+    color: #919191;
+}
+
+.input_icon {
+    position: absolute;
+    top: 5px;
+    width: 29px;
+    font-size: 15px;
+    line-height: 29px;
+    text-align: center;
+    right: 5px;
+    padding-left: 3px;
+    border-left: solid 1px;
+}
+.align{
+    float: left;
+    min-height: 1px;
+    width: 50%;
+}
+
+#form1 > fieldset.info_civil > section > label {
+    position: inherit;
+}
+
+#form1 > fieldset:nth-child(3) > section:nth-child(1) > label{
+    padding-right:17px;
+}
+#form1 > fieldset:nth-child(3) > section:nth-child(2) > label{
+    margin-left: 17px;
+}
+
+input:invalid + .fa {
+    color: rgba(219, 70, 67, 0.87);
+    border-left: solid 1px #ccc;
+}
+
+input:valid{
+    border:solid #71a37b 3px;
+}
+
+input:valid + .fa{
+    color:#71a37b;
+    border-left: solid 1px #ccc;
+}
+
+footer{
+    display: block;
+    padding: 15px 30px 25px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    background: rgba(248,248,248,.9);
+    height: 49px;
+}
+
+button {
+    float: right;
+    height: 39px;
+    overflow: hidden;
+    margin: 10px 0 0 20px;
+    padding: 0 25px;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #2da5da;
+}
+
+.fa{
+    color:#ccc;
+}
