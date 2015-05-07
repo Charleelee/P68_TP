@@ -11,9 +11,9 @@
     <div id="form_wrapper">
         <form method="get" id="form1">
             <header>Inscrivez-vous</header>
-            <fieldset>
+            <fieldset id="fieldset1">
                 <label class="input_label">
-                    <input type="text" required="required" autofocus="autofocus" placeholder="Nom d'utilisateur"/>
+                    <input type="text" autofocus="autofocus" placeholder="Nom d'utilisateur"/>
                     <i class="input_icon fa fa-user"></i>
                 </label>
                 <label class="input_label">
@@ -29,7 +29,7 @@
                     <i class="input_icon fa fa-lock"></i>
                 </label>
             </fieldset>
-            <fieldset class="info_civil">
+            <fieldset id="fieldset2" class="inactive">
                 <section class="align">
                     <label class="input_label">
                         <input type="text" required="required" placeholder="Nom"/>
@@ -50,11 +50,29 @@
                     </label>
                 </section>
             </fieldset>
+            <fieldset name="Émission de gaz" id="fieldset3" class="inactive">
+                <label class="input_label">Votre moyen de transport:
+                    <select name="moyen_transport">
+                        <option selected="selected" id="Voiture">Voiture</option>
+                        <option id="métro">Métro</option>
+                        <option id="bus">Bus</option>
+                        <option id="velo">Vélo</option>
+                        <option id="pied">À pied</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset id="fieldset4" class="inactive">
+                <label for="gaz"> Gaz</label>
+                    <input name="energie" id="gaz" type="radio"/>
+                <label  for="pétrole"> Pétrole</label>
+                    <input name="energie" id="pétrole" type="radio"/>
+            </fieldset>
             <footer>
-                <button>Suivant</button>
+                <button id="next">Suivant</button>
             </footer>
         </form>
     </div>
-<script src="assets/script/main.js"></script>
+<script src="assets/script/jquery.js"></script>
+<script src="assets/script/script.js"></script>
 </body>
 </html>    

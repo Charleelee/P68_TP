@@ -76,7 +76,7 @@ select{
     width: 50%;
 }
 
-#form1 > fieldset.info_civil > section > label {
+#fieldset2 > section > label {
     position: inherit;
 }
 
@@ -92,9 +92,18 @@ input:invalid + .fa {
     border-left: solid 1px #ccc;
 }
 
-input:valid{
+input:invalid:not(#submit){
+    color: rgba(219, 70, 67, 0.87);
+    outline: none;
+    box-shadow: 0 0 10px #71a37b;
+}
+
+
+input:valid:not(#submit){
     border:solid #71a37b 3px;
-    opacity: 99;
+    opacity: 0.5;
+    outline: none;
+    box-shadow: 0 0 10px #71a37b;
 }
 
 input:valid + .fa{
@@ -110,7 +119,7 @@ footer{
     height: 49px;
 }
 
-button {
+button, input[type="submit"] {
     float: right;
     height: 39px;
     overflow: hidden;
@@ -122,6 +131,14 @@ button {
     color: #fff;
     cursor: pointer;
     background-color: #2da5da;
+}
+
+.inactive{
+    display:none;
+}
+
+.active{
+    display:block;
 }
 
 .fa{
