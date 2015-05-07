@@ -94,6 +94,7 @@ input:invalid + .fa {
 
 input:valid{
     border:solid #71a37b 3px;
+    opacity: 99;
 }
 
 input:valid + .fa{
