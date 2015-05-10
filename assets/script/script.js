@@ -52,7 +52,7 @@ function calcul_taux() {
             break;
         case "métro":
             multiplicateur=0.07;
-            km_box.className="inactive input_label";
+            km_box.className="active input_label";
             essence_box.className="inactive input_label";
             diesel_radio.className="inactive radio_label";
             essence_checkbox.className="inactive radio_label";
@@ -66,7 +66,8 @@ function calcul_taux() {
             diesel_radio.className="inactive radio_label";
             essence_checkbox.className="inactive radio_label";
             qte_deplacement_range.className="active input_label";
-            calcul_emission();
+            taux =0.00;
+            affiche_taux();
             break;
         case "pied":
             multiplicateur=0;
@@ -75,7 +76,8 @@ function calcul_taux() {
             diesel_radio.className="inactive radio_label";
             essence_checkbox.className="inactive radio_label";
             qte_deplacement_range.className="active input_label";
-            calcul_emission();
+            taux=0.00;
+            affiche_taux();
             break;
         case "VUS":
             multiplicateur=0.30;
