@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="form_wrapper">
-        <form method="get" id="form1">
+        <form method="get" id="form1" action="http://www.google.com">
             <header>Inscrivez-vous</header>
             <fieldset id="fieldset1">
                 <label class="input_label">
@@ -17,58 +17,77 @@
                     <i class="input_icon fa fa-user"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text" required="required" placeholder="Adresse e-mail"/>
+                    <input type="text" placeholder="Adresse e-mail"/>
                     <i class="input_icon fa fa-envelope-o"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text" required="required" placeholder="Mot de passe"/>
+                    <input type="text" placeholder="Mot de passe"/>
                     <i class="input_icon fa fa-lock"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text" required="required" placeholder="Confirmer le mot de passe"/>
+                    <input type="text"  placeholder="Confirmer le mot de passe"/>
                     <i class="input_icon fa fa-lock"></i>
                 </label>
             </fieldset>
-            <fieldset id="fieldset2" class="inactive">
-                <section class="align">
+            <fieldset name="info_civil" id="fieldset2">
+                <div class="align">
                     <label class="input_label">
-                        <input type="text" required="required" placeholder="Nom"/>
+                        <input type="text" placeholder="Nom"/>
                     </label>
-                </section>
-                <section class="align">
+                </div>
+                <div class="align">
                     <label class="input_label">
-                        <input type="text" required="required" placeholder="Prénom"/>
+                        <input type="text" placeholder="Prénom"/>
                     </label>
-                </section>
-                <section>
-                    <label class="input_label">
-                        <select name="Genre">
+                </div>
+                <div>
+                    <label for="genre">
+                        <select id="genre" name="Genre">
                             <option selected="selected">Genre</option>
                             <option>Homme</option>
                             <option>Femme</option>
                         </select>
                     </label>
-                </section>
+                </div>
             </fieldset>
             <fieldset name="Émission de gaz" id="fieldset3" class="inactive">
                 <label class="input_label">Votre moyen de transport:
-                    <select name="moyen_transport">
-                        <option selected="selected" id="Voiture">Voiture</option>
-                        <option id="métro">Métro</option>
-                        <option id="bus">Bus</option>
+                    <select onchange="calcul_taux()" id="moyen_transport">
+                        <option selected="selected">Selectioner</option>
+                        <option id="Voiture">Voiture</option>
+                        <option id="métro">Métro et/ou bus</option>
+                        <option id="VUS">Camion léger ( VUS, camionette )</option>
+                        <option id="covoiturage">Covoiturage</option>
                         <option id="velo">Vélo</option>
+                        <option id="moto">Moto</option>
                         <option id="pied">À pied</option>
                     </select>
                 </label>
+                <label for="km_box" class= "inactive input_label">Kilomètre parcourus :
+                    <input onkeyup="calcul_emission()"  value="0"  type="number" id="km_box"/>
+                </label>
+                <label for="essence" class="inactive input_label">Essence consommé :
+                    <input onkeyup="calcul_emission()"  value="0" id="essence" type="number"/>
+                </label>
+                <label for="diesel" class="inactive input_checkbox">Diesel
+                    <input onclick="calcul_emission()" checked="checked" name="type_essence" id="diesel" type="radio"/>
+                </label>
+                <label for="essence2" class="inactive input_checkbox">Essence
+                    <input onclick="calcul_emission()" name="type_essence"  id="essence2" type="radio"/>
+                </label>
+                <label for="qte_deplacement" class="inactive input_label">Déplacements par semaine :
+                    <input onclick="calcul_emission()" type="range" id="qte_deplacement" value="1" min="1" max="50" step="1" oninput="display_qte_deplacement.value = qte_deplacement.value"/>
+                    <output for="qte_deplacement" name="display_qte_deplacement"> 1</output>
+                </label>
             </fieldset>
-            <fieldset id="fieldset4" class="inactive">
+            <fieldset  onclick="affiche_taux()" id="fieldset4" class="inactive">
                 <label for="gaz"> Gaz</label>
                     <input name="energie" id="gaz" type="radio"/>
                 <label  for="pétrole"> Pétrole</label>
-                    <input name="energie" id="pétrole" type="radio"/>
+                    <input  name="energie" id="pétrole" type="radio"/>
             </fieldset>
-            <footer>
-                <button id="next">Suivant</button>
+            <footer id="footer">
+                <input id="next" onclick="slide()" type="button" value="Suivant"/>
             </footer>
         </form>
     </div>

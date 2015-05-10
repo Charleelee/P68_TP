@@ -8,50 +8,123 @@ function init(){
 
 }
 
-$('#next').click(slide);
 
-var i=0;
+var i=1;
 var fieldset=document.getElementsByTagName("fieldset");
+var taux = 0;
+
+function affiche_taux(){
+    $('#footer').html('<input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+'</p>');
+
+}
 
 function slide(){
+    if (i==1){
+        fieldset[i-1].className="inactive";
+        fieldset[i].className="inactive";
+        fieldset[i+1].className="active";
+    }
     i++;
     fieldset[i-1].className="inactive";
     fieldset[i].className="active";
 }
 
 
+var multiplicateur = 0;
+function calcul_taux() {
+    var fieldset3 = document.getElementById("fieldset3");
+    var km_box = fieldset3.getElementsByTagName('label')[1];
+    var essence_box = fieldset3.getElementsByTagName('label')[2];
+    var diesel_radio = fieldset3.getElementsByTagName('label')[3];
+    var essence_checkbox = fieldset3.getElementsByTagName('label')[4];
+    var qte_deplacement_range = fieldset3.getElementsByTagName('label')[5];
+    var moyen_transport = document.getElementById('moyen_transport').selectedOptions[0].id;
 
+    switch (moyen_transport) {
+        case "Voiture":
+            multiplicateur=0.21;
+            km_box.className="active input_label";
+            essence_box.className="active input_label";
+            diesel_radio.className="active radio_label";
+            essence_checkbox.className="active radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case "métro":
+            multiplicateur=0.07;
+            km_box.className="inactive input_label";
+            essence_box.className="inactive input_label";
+            diesel_radio.className="inactive radio_label";
+            essence_checkbox.className="inactive radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case "velo":
+            multiplicateur=0;
+            km_box.className="inactive input_label";
+            essence_box.className="inactive input_label";
+            diesel_radio.className="inactive radio_label";
+            essence_checkbox.className="inactive radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case "pied":
+            multiplicateur=0;
+            km_box.className="inactive input_label";
+            essence_box.className="inactive input_label";
+            diesel_radio.className="inactive radio_label";
+            essence_checkbox.className="inactive radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case "VUS":
+            multiplicateur=0.30;
+            km_box.className="active input_label";
+            essence_box.className="active input_label";
+            diesel_radio.className="active radio_label";
+            essence_checkbox.className="active radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case"covoiturage":
+            multiplicateur=0.09;
+            km_box.className="active input_label";
+            essence_box.className="active input_label";
+            diesel_radio.className="active radio_label";
+            essence_checkbox.className="active radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+        case "moto":
+            multiplicateur=0.14;
+            km_box.className="active input_label";
+            essence_box.className="active input_label";
+            diesel_radio.className="active radio_label";
+            essence_checkbox.className="active radio_label";
+            qte_deplacement_range.className="active input_label";
+            calcul_emission();
+            break;
+    }
+}
 
+function calcul_emission(){
+    var multipl = multiplicateur;
+    var nbr_km = parseInt(document.getElementById('km_box').value);
+    var nbr_essence = parseInt(document.getElementById('essence').value);
+    var nbr_deplacement = parseInt(document.getElementById('qte_deplacement').value);
+    var diesel_radio = document.getElementById('diesel');
+    var essence_radio = document.getElementById('essence2');
 
+    var emission_nbr_essence = 0;
 
+    if (diesel_radio.checked){
+        emission_nbr_essence = (parseFloat(Math.round(nbr_essence * 100) / 100).toFixed(2))*2.68;
+    }
+    else {
+        emission_nbr_essence = (parseFloat(Math.round(nbr_essence * 100) / 100).toFixed(2))*2.33;
+    }
+    var taux_non_arrondi = ((multipl*nbr_km)+emission_nbr_essence)*nbr_deplacement;
+    taux = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
+    affiche_taux();
 
-
-
-
-//function slide(){
-//    var input, txt;
-//    $('#fieldset1').slideUp(1000);
-//    $('#fieldset2').slideUp(1000);
-//    $('#fieldset3').slideDown(1000);
-//
-//
-//    input = document.createElement("button");
-//    txt = document.createTextNode('Suivant');
-//    input.id="next_field";
-//    document.getElementsByTagName("FOOTER")[0].appendChild(input);
-//    input.appendChild(txt);
-//    $('#next').css({
-//        'display':'none'
-//    });
-//
-//    $('#next_field').click(slide2);
-//
-//    $('header').text('Étape 1/13 Logement : Habitation principale');
-//
-//}
-//
-//function slide2() {
-//    $('#fieldset3').slideUp(1000);
-//    $('#fieldset4').slideDown(1000);
-//    $('header').text('Étape 2/13 Logement : Énergie du logement');
-//}
+}
