@@ -138,7 +138,6 @@ footer > p {
 input[type="button"], input[type="submit"] {
     float: right;
     height: 39px;
-    overflow: hidden;
     margin: 10px 0 0 20px;
     padding: 0 25px;
     border: 0;
@@ -198,6 +197,8 @@ input[type="radio"]{
 }
 
 input[type=submit]{
-    margin-left:10px;
+    margin-left:0;
     margin-top:0;
+    width:110px;
+    padding:0;
 }

@@ -8,7 +8,6 @@ function init(){
 
 }
 
-var j=1;
 var i=1;
 var fieldset=document.getElementsByTagName("fieldset");
 var taux = 0;
@@ -31,45 +30,56 @@ function slide(){
         fieldset[i+1].className="active";
     }
     i++;
-    j++;
     fieldset[i-1].className="inactive";
     fieldset[i].className="active";
-    if (fieldset[i].id=="fieldset3"){
+
+    if ( fieldset[2].className=="active" ) {
+        $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide   ()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' + taux + ' Kg Co2 éq</p>');
+    }
+
+    if ( fieldset[i].id =="fieldset3"){
         document.getElementsByTagName('HEADER')[0].innerHTML="Étape 1/3 : Transport";
     }
-    else if ( fieldset[i].id =="fieldset4"){
+
+    if ( fieldset[i].id =="fieldset4"){
         document.getElementsByTagName('HEADER')[0].innerHTML="Étape 2/3 : Bâtiment";
     }
-    else if ( fieldset[i].id =="fieldset5") {
+    if ( fieldset[4].className =="active") {
         document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 3/3 : Matières résiduelles";
         affiche_taux_final();
+    }
+    else {
+        affiche_taux();
     }
 }
 
 function slide_back() {
-    if (j==2){
-        fieldset[j-1].className="active";
-        fieldset[j].className="inactive";
-        fieldset[j-2].className="active";
-            document.getElementsByTagName('HEADER')[0].innerHTML="Inscrivez-vous";
+    if (i==2){
+        fieldset[i-1].className="active";
+        fieldset[i].className="inactive";
+        fieldset[i-2].className="active";
+        document.getElementsByTagName('HEADER')[0].innerHTML="Inscrivez-vous";
+        $('#footer').html('<input id="next" onclick="slide()" type="button" value="Suivant"/>');
     }
 
     else {
-        fieldset[j].className="inactive";
-        fieldset[j-1].className="active";
+        fieldset[i].className="inactive";
+        fieldset[i-1].className="active";
     }
     i--;
-    j--;
-    if (fieldset[i].id == "fieldset2") {
-        document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 1/3 : Transport"
+
+    if ( fieldset[i].id =="fieldset4"){
+        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 2/3 : Bâtiment";
+        affiche_taux();
     }
-    else if (fieldset[i].id == "fieldset3") {
-        document.getElementsByTagName('HEADER')[0].innerHTML = "Inscrivez-vous";
+
+    if ( fieldset[2].className=="active" ) {
+        $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide   ()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq</p>');
+        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 1/3 : Transport";
     }
-    else if (fieldset[i].id == "fieldset4") {
-        document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 3/3 : Matières résiduelles";
-        affiche_taux_final();
-    }
+
+
+
 }
 
 var multiplicateur = 0;
