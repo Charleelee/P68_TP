@@ -4,12 +4,16 @@
     <meta charset="UTF-8"/>
     <meta name="author" content="Jorel Amthor & Charles-Élie Bedard"/>
     <title></title>
-	<link rel="stylesheet" href="assets/style/normalized.css">
-    <link rel="stylesheet" href="assets/style/main.css"/>
+	<link rel="stylesheet" href="assets/style/normalize.css">
+    <link rel="stylesheet" href="assets/style/index.css"/>
 </head>
 <body>
 	<div class="wrap-container">
-		<header>
+		<div class="intro">
+			<!-- Background Image fix -->
+			<h1>Lorem Ipsum</h1>
+		</div>
+		<header class="header-main">
 			<nav>
 				<ul>
 					<li>A propos de nous</li>
@@ -20,11 +24,20 @@
 					<li>Questionnaire</li>
 				</ul>
 			</nav>
-			<h1></h1>
 		</header>
-		<section>
+		<section class="about-section">
+			<h2>Lorm Ipsum</h2>
+			<div>
+				<img src="assets/img/chart31.png" alt="icone">
+				<img src="assets/img/spike1.png" alt="icone">
+				<img src="assets/img/chart39.png" alt="icone">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error aliquam provident molestias cum esse ipsum maxime, nesciunt vitae, beatae nam, fugiat. Minus quo, distinctio provident accusantium voluptatum quos repudiandae illum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, quas pariatur libero eius architecto natus, rem facere nulla debitis asperiores quasi illo dolore tempore ipsum aperiam recusandae ratione eveniet earum.</p>
+			</div>
+		</section>
+		<section class="content-post-wrap">
 		<h3>Réduisez les émissions de votre logement</h3>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Agir sans investir</h4>
 				</header>
@@ -39,7 +52,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements faibles et moyens</h4>
 				</header>
@@ -51,7 +64,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements lourds</h4>
 				</header>
@@ -65,9 +78,9 @@
 				</footer>
 			</article>
 		</section>
-		<section>
+		<section class="content-post-wrap">
 		<h3>Réduisez les émissions de vos transports</h3>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Agir sans investir</h4>
 				</header>
@@ -81,7 +94,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements faibles et moyens</h4>
 				</header>
@@ -91,7 +104,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements lourds</h4>
 				</header>
@@ -102,9 +115,9 @@
 				</footer>
 			</article>
 		</section>
-		<section>
+		<section class="content-post-wrap">
 		<h3>Réduisez les émissions de votre alimentation</h3>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Agir sans investir</h4>
 				</header>
@@ -117,7 +130,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements faibles et moyens</h4>
 				</header>
@@ -127,7 +140,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements lourds</h4>
 				</header>
@@ -137,9 +150,9 @@
 				</footer>
 			</article>
 		</section>
-		<section>
+		<section class="content-post-wrap">
 		<h3>Réduisez les émissions de votre vie quotidienne et de vos loisirs</h3>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Agir sans investir</h4>
 				</header>
@@ -154,7 +167,7 @@
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
 			</article>
-			<article>
+			<article class="content-post">
 				<header>
 					<h4>Investissements faibles et moyens</h4>
 				</header>
@@ -165,18 +178,6 @@
 				<p>Si vous avez des animaux domestiques, nourrissez-les autant que possible avec les restes alimentaires. Les produits pour animaux présentent un fort coût en carbone, surtout ceux à base de viande.</p>
 				<p>Choisissez une assurance qui privilégie les personnes attentives à l’environnement. Payez vos trajets en voiture au km, bénéficiez de bonus si vous prenez les transports en commun, etc…</p>
 				<p>Pendant les vacances, la pratique d’activités sportives motorisées, ou nécessitant un transport motorisé, est émettrice de gaz à effet de serre. Profitez de ce temps de repos pour pratiquer des activités originales et peu polluantes (voilier, voyage à vélo, randonnée à pied ou à ski, accrobranche…). Vous éviterez ainsi l’émission de 100 kg eq. CO2 par semaine de vacance !</p>
-				<footer>
-					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
-				</footer>
-			</article>
-			<figure id="map">
-                <p id="error"></p>
-            </figure>
-			<article>
-				<header>
-					<h4>Investissements lourds</h4>
-				</header>
-				<p></p>
 				<footer>
 					<p>Sources <a href="http://www.fge-carbone.com/calcul.php/telecharger-votre-rapport-d-emission-carbone.html">FGE Carbone</a></p>
 				</footer>
