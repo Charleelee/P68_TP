@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-@import url(http://fonts.googleapis.com/css?family=Courgette:400);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700);
+
+/* CSS General */
 
 p {
 	font-family: 'Roboto', sans-serif;
@@ -7,6 +9,8 @@ p {
  	font-weight: 300;
  	color: #333;
 }
+
+/* CSS Cover image */
 
 .intro {
 	background: url('../img/header_background.jpg') no-repeat center center fixed; 
@@ -21,12 +25,14 @@ p {
 	text-align: center;
 	margin: 0;
 	line-height: 1200px;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 4em;
 	color: #044C29;
 	letter-spacing: 1px;
  	font-weight: 300;
 }
+
+/* CSS Navigation principal */
 
 nav {
 	text-align: center;
@@ -51,6 +57,9 @@ nav ul li {
  	color: #EEE;
 	background-color: #45BF55;
  	border-radius: 4px;
+    transition: background-color 5s ease 0s;
+    -webkit-transition: background-color 5s ease 0s;
+    -o-transition: background-color 5s ease 0s;
 }
 
 nav ul li a {
@@ -66,6 +75,8 @@ nav ul li:hover {
 	color: #EEE;
 }
 
+/* CSS Section A Propos */
+
 .about-section {
 	background-color: #96ED89;
 }
@@ -73,7 +84,7 @@ nav ul li:hover {
 .about-section h2 {
 	text-align: center;
 	margin-top: 0;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 3em;
 	color: #044C29;
 	letter-spacing: 1px;
@@ -93,7 +104,7 @@ nav ul li:hover {
 	margin: 0 30px; 
 }
 
-/* Sections */
+/* CSS Sections */
 
 .wrap-container section:nth-of-type(2n+1) {
 	background-color: #96ED89;
@@ -105,7 +116,7 @@ nav ul li:hover {
 }
 
 .content-post-wrap h3 {
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 2em;
 	color: #044C29;
 	letter-spacing: 1px;
@@ -113,14 +124,15 @@ nav ul li:hover {
 }
 
 .content-post {
-	display: block;
+	display: inline-block;
+    vertical-align: top;
 	width: 500px;
 	margin: 20px;
 }
 
 .content-post h4 {
 	text-align: left;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 1.3em;
 	color: #044C29;
 	letter-spacing: 1px;
@@ -130,6 +142,65 @@ nav ul li:hover {
 .content-post p {
 	text-align: justify;
 }
+
+.content-post a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #044C29;
+}
+
+.content-post footer p {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-weight: 300;
+    text-align: right;
+    color: #333;
+}
+
+.content-post footer p a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 300;
+    color: #044C29;
+}
+
+/* CSS Section Footer */ 
+
+.main-footer {
+    text-align: center;
+    height: 250px;
+    background-color: #00261C;
+}
+
+.main-footer ul {
+    display: inline-block;
+    width: 25%;
+    margin: 20px auto 0px auto;
+    list-style: none;
+}
+
+.main-footer ul li a {
+    text-decoration: none;
+    color: #EEE;
+}
+
+.main-footer .footer-icons {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+}
+
+.footer-icons li {
+    display: inline-block;
+    margin: 15px;
+}
+
+.footer-icons li a img {
+    width: 100px;
+}
+
+
 
 /* CSS du formulaire */
 
