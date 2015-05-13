@@ -17,6 +17,17 @@ p {
   	height: 720px;
 }
 
+.intro h1 {
+	text-align: center;
+	margin: 0;
+	line-height: 1200px;
+	font-family: 'Courgette', cursive;
+	font-size: 4em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
+}
+
 nav {
 	text-align: center;
 	background-color: #96ED89;
@@ -39,6 +50,7 @@ nav ul li {
  	font-weight: 300;
  	color: #EEE;
 	background-color: #45BF55;
+ 	border-radius: 4px;
 }
 
 nav ul li a {
@@ -58,11 +70,11 @@ nav ul li:hover {
 	background-color: #96ED89;
 }
 
-.about-section h1 {
+.about-section h2 {
 	text-align: center;
 	margin-top: 0;
 	font-family: 'Courgette', cursive;
-	font-size: 4em;
+	font-size: 3em;
 	color: #044C29;
 	letter-spacing: 1px;
  	font-weight: 300;
