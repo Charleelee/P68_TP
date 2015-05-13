@@ -32,7 +32,7 @@ p {
  	font-weight: 300;
 }
 
-/* Navigation principal */
+/* CSS Navigation principal */
 
 nav {
 	text-align: center;
@@ -75,7 +75,7 @@ nav ul li:hover {
 	color: #EEE;
 }
 
-/* Section A Propos */
+/* CSS Section A Propos */
 
 .about-section {
 	background-color: #96ED89;
@@ -104,7 +104,7 @@ nav ul li:hover {
 	margin: 0 30px; 
 }
 
-/* Sections */
+/* CSS Sections */
 
 .wrap-container section:nth-of-type(2n+1) {
 	background-color: #96ED89;
@@ -163,6 +163,26 @@ nav ul li:hover {
     font-style: normal;
     font-weight: 300;
     color: #044C29;
+}
+
+/* CSS Section Footer */ 
+
+.main-footer {
+    text-align: center;
+    height: 300px;
+    background-color: #00261C;
+}
+
+.main-footer ul {
+    display: inline-block;
+    width: 25%;
+    margin: 20px auto 0px auto;
+    list-style: none;
+}
+
+.main-footer ul li a {
+    text-decoration: none;
+    color: #EEE;
 }
 
 /* CSS du formulaire */
