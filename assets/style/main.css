@@ -57,6 +57,9 @@ nav ul li {
  	color: #EEE;
 	background-color: #45BF55;
  	border-radius: 4px;
+    transition: background-color 5s ease 0s;
+    -webkit-transition: background-color 5s ease 0s;
+    -o-transition: background-color 5s ease 0s;
 }
 
 nav ul li a {
