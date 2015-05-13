@@ -13,37 +13,37 @@
             <header id="header">Inscrivez-vous</header>
             <fieldset id="fieldset1">
                 <label class="input_label">
-                    <input type="text" pattern=[0-9]{1,10} autofocus="autofocus" placeholder="Nom d'utilisateur"/>
+                    <input pattern="[a-zA-Z]{3,12}" required="required" type="text" autofocus="autofocus" placeholder="Nom d'utilisateur" title="Votre pseudo doit faire entre 3 et 12 caractères"/>
                     <i class="input_icon fa fa-user"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text" placeholder="Adresse e-mail"/>
+                    <input required="required" type="email" placeholder="Adresse e-mail" title="Votre adresse email de doit pas contenir de caractères spéciaux"/>
                     <i class="input_icon fa fa-envelope-o"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text" placeholder="Mot de passe"/>
+                    <input id="mdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$" required="required" type="text" placeholder="Mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                     <i class="input_icon fa fa-lock"></i>
                 </label>
                 <label class="input_label">
-                    <input type="text"  placeholder="Confirmer le mot de passe"/>
+                    <input id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                     <i class="input_icon fa fa-lock"></i>
                 </label>
             </fieldset>
             <fieldset name="info_civil" id="fieldset2">
                 <div class="align">
                     <label class="input_label">
-                        <input type="text" placeholder="Nom"/>
+                        <input required="required" type="text" placeholder="Nom"/>
                     </label>
                 </div>
                 <div class="align">
-                    <label class="input_label">
-                        <input type="text" placeholder="Prénom"/>
+                    <label  class="input_label">
+                        <input required="required" type="text" placeholder="Prénom"/>
                     </label>
                 </div>
                 <div>
                     <label for="genre">
-                        <select id="genre" name="Genre">
-                            <option selected="selected">Genre</option>
+                        <select required="required" id="genre" name="Genre">
+                            <option>Genre</option>
                             <option>Homme</option>
                             <option>Femme</option>
                         </select>

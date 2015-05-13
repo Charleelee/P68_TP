@@ -1,16 +1,17 @@
 /**
  * Created by École on 2015-05-06.
  */
-
+"use strict";
 window.onload=init;
 
 function init(){
-
+show_map();
 }
 
 var i=1;
 var fieldset=document.getElementsByTagName("fieldset");
 var taux = 0;
+var taux1 = 0;
 var taux2 = 0;
 var taux3 = 0;
 
@@ -19,11 +20,19 @@ function affiche_taux(){
 }
 
 function affiche_taux_final(){
-    $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input type="Submit" value="Soummettre"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+ ' Kg Co2 éq</p>');
+    $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input type="Submit" value="Soumettre"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+ ' Kg Co2 éq</p>');
 }
 
 
 function slide(){
+    var mdp=document.getElementById('mdp');
+    var verifmdp=document.getElementById('verifmdp');
+
+    if ( mdp.value != verifmdp.value ){
+        alert('Les mot de passe ne correspondent pas !');
+        verifmdp.value="";
+    }else{
+
     if (i==1){
         fieldset[i-1].className="inactive";
         fieldset[i].className="inactive";
@@ -34,7 +43,7 @@ function slide(){
     fieldset[i].className="active";
 
     if ( fieldset[2].className=="active" ) {
-        $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide   ()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' + taux + ' Kg Co2 éq</p>');
+        affiche_taux();
     }
 
     if ( fieldset[i].id =="fieldset3"){
@@ -50,6 +59,7 @@ function slide(){
     }
     else {
         affiche_taux();
+    }
     }
 }
 
@@ -74,7 +84,7 @@ function slide_back() {
     }
 
     if ( fieldset[2].className=="active" ) {
-        $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide   ()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq</p>');
+        affiche_taux();
         document.getElementsByTagName('HEADER')[0].innerHTML="Étape 1/3 : Transport";
     }
 
@@ -178,7 +188,7 @@ function calcul_emission(){
     }
 
     var taux_non_arrondi = ((multipl*nbr_km)+emission_nbr_essence)*nbr_deplacement;
-    taux1 = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
+    taux1  = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
     taux = taux1;
     affiche_taux();
 }
@@ -191,7 +201,7 @@ function calcul_emission_batiment(){
     var conso_bois = parseInt(document.getElementById('bois').value);
 
     var conso_batiment = (conso_electricité*0.0006)+(conso_gaz*1.90)+(conso_propane*1.54)+(conso_mazout*2.73)*(conso_bois*0.42);
-    taux_non_arrondi = parseInt(taux1) + conso_batiment;
+    var taux_non_arrondi = parseInt(taux1) + conso_batiment;
     taux2 = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
     taux=taux2;
     affiche_taux();
@@ -203,8 +213,57 @@ function calcul_emission_dechet(){
     var conso_enfouissement = parseInt(document.getElementById('enfouissement').value);
 
     var conso_dechet = (conso_compostage*0.03)+(conso_recyclage*0.01)+(conso_enfouissement*1.48);
-    taux_non_arrondi = parseInt(taux2) + conso_dechet;
+    var taux_non_arrondi = parseInt(taux2) + conso_dechet;
     taux3 = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
     taux = taux3;
     affiche_taux_final();
+}
+
+function show_map(){
+    console.log('branched');
+    if (navigator.geolocation != null){
+        navigator.geolocation.getCurrentPosition(yesgeoloc,nogeoloc);
+    }else{
+        document.getElementById('error').innerHTML="Votre navigateur ne prends pas en charge la géoloc";
+    }
+
+    function yesgeoloc(pos){
+        console.log('working');
+        var latitude = pos.coords.latitude;
+        var longitude = pos.coords.longitude;
+        console.log(latitude,longitude);
+        affich_carte(pos);
+    }
+
+    function nogeoloc(error){
+        document.getElementById('error').innerHTML="Vous n'avez pas autoriser votre navigateur à vous localiser";
+    }
+}
+
+function affich_carte(pos) {
+    var latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+    var map_options = {
+        zoom: 11,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: true
+    };
+    var map = new google.maps.Map(document.getElementById('map'), map_options);
+    var marker = new google.maps.Marker({
+        position:  new google.maps.LatLng(45.548141, -73.624684),
+        map: map,
+        title:"Villeray"
+    });
+    var marker2 = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        title:"Position actuelle",
+        visible:true,
+        labelContent: "Je suis la"
+    });
+    var marker3 = new google.maps.Marker({
+        position: new google.maps.LatLng(45.523569, -73.589048),
+        map: map,
+        title:"Plateau Mont-royal"
+    });
 }
