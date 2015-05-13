@@ -1,0 +1,345 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+@import url(http://fonts.googleapis.com/css?family=Courgette:400);
+
+p {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #333;
+}
+
+.intro {
+    background: url('../img/header_background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 720px;
+}
+
+.intro h1 {
+    text-align: center;
+    margin: 0;
+    line-height: 1200px;
+    font-family: 'Courgette', cursive;
+    font-size: 4em;
+    color: #044C29;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+nav {
+    text-align: center;
+    background-color: #96ED89;
+}
+
+ul {
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+}
+
+nav ul li {
+    display: inline-block;
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 42px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #EEE;
+    background-color: #45BF55;
+    border-radius: 4px;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    width: 160px;
+    height: 40px;
+    color: #FFF;
+}
+
+nav ul li:hover {
+    background-color: #00261C;
+    color: #EEE;
+}
+
+.about-section {
+    background-color: #96ED89;
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Courgette', cursive;
+    font-size: 3em;
+    color: #044C29;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about-section div {
+    text-align: center;
+    margin: 0 auto;
+    width: 800px;
+    height: 300px;
+}
+
+.about-section div img {
+    display: inline-block;
+    width: 80px;
+    margin: 0 30px;
+}
+
+/* Sections */
+
+.wrap-container section:nth-of-type(2n+1) {
+    background-color: #96ED89;
+}
+
+.content-post-wrap h3 {
+    font-family: 'Courgette', cursive;
+    font-size: 2em;
+    color: #044C29;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.content-post-wrap {
+    text-align: center;
+}
+
+.content-post {
+    display: inline-block;
+    width: 500px;
+    margin: 20px;
+}
+
+.content-post h4 {
+    text-align: left;
+    font-family: 'Courgette', cursive;
+    font-size: 1.3em;
+    color: #044C29;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.content-post p {
+    text-align: justify;
+}
+
+/* CSS du formulaire */
+
+#header {
+    padding: 20px 30px;
+    background-color: rgba(248,248,248,.9);
+    font-size:25px;
+    color: #232323;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+#form1 {
+    font:13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(188, 188, 188, 0.30);
+    border: solid rgb(178, 210, 241) 2px;
+}
+
+#form_wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding:0;
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-image: url(../img/body_bg.jpg);
+    background-size: cover;
+}
+
+form > fieldset{
+    padding:25px 30px 5px;
+    background-color: rgba(255,255,255,.9);
+    border: none;
+    margin: 0;
+    border-top:1px solid rgba(0,0,0,.1)
+}
+
+.input_label{
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+}
+
+select{
+    color: #989898;
+}
+
+input[type=text], input[type=number], input[type=number],input[type=email], select{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 39px;
+    padding: 6px 40px 6px 10px;
+    border: solid 2px #dedede;
+    background: #fff;
+}
+
+#fieldset3 > label:nth-child(2){
+    margin-bottom: 10px;
+}
+
+#fieldset3 > label:nth-child(6){
+    clear:left;
+}
+
+input[type=number]{
+    height:20px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.input_icon {
+    position: absolute;
+    top: 5px;
+    width: 29px;
+    font-size: 15px;
+    line-height: 29px;
+    text-align: center;
+    right: 5px;
+    padding-left: 3px;
+    border-left: solid 1px;
+}
+.align{
+    float: left;
+    min-height: 1px;
+    width: 50%;
+}
+
+#form1 > fieldset:nth-child(3) > div:nth-child(1) > label{
+    padding-right:17px;
+}
+#form1 > fieldset:nth-child(3) > div:nth-child(2) > label{
+    margin-left: 17px;
+}
+
+input[type=text]:invalid + .fa, input[type=email]:invalid + .fa {
+    color: rgba(219, 16, 42, 0.87);
+    border-left: solid 1px #ccc;
+}
+
+input[type=text]:invalid, input[type=email]:invalid{
+    color: rgba(219, 70, 67, 0.87);
+}
+
+input:invalid:before {
+    content: 'attr(title)';
+}
+
+
+input[type=text]:valid, input[type=email]:valid{
+    background-color: #95d9a3;
+    border:solid #71a37b 3px;
+    opacity: 0.5;
+}
+
+input[type=text]:valid + .fa, input[type=email]:valid + .fa{
+    color:#71a37b;
+    border-left: solid 1px #ccc;
+}
+
+
+form > footer{
+    display: block;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-top: 1px solid rgba(0,0,0,.1);
+    background: rgba(248,248,248,.9);
+    height: 49px;
+}
+
+form > footer > p {
+    margin-top: 0;
+}
+
+#prev {
+    float:left;
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+input[type="button"], input[type="submit"] {
+    float: right;
+    height: 39px;
+    margin: 10px 0 0 20px;
+    padding: 0 25px;
+    border: 0;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #2da5da;
+}
+
+input[type="button"]{
+    margin:0;
+    margin-left:5px;
+}
+
+input[type=number]{
+    padding:0;
+    padding-left:10px;
+}
+
+input[type="radio"]{
+    float:left;
+    margin-left:0;
+}
+.radio_label {
+    display:inline;
+}
+
+.inactive{
+    display:none;
+}
+
+.active{
+    display:block;
+}
+
+.fa{
+    color:#ccc;
+}
+
+#fieldset4 > label > input[type=number]{
+    width:70px;
+    float:right;
+}
+
+#fieldset3 > label > input[type=number]{
+    width:150px;
+    float:right;
+}
+
+#fieldset5 > label > input[type=number]{
+    width:70px;
+    float:right;
+}
+
+#fieldset3 > label:nth-child(4) {
+    width: 20%;
+}
+
+input[type=submit]{
+    margin-left:0;
+    margin-top:0;
+    width:110px;
+    padding:0;
+}
+
+#map {
+    width:770px;
+    height:350px;
+    margin-left:16px;
+}
