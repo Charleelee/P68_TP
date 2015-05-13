@@ -99,6 +99,11 @@ nav ul li:hover {
 	background-color: #96ED89;
 }
 
+.content-post-wrap {
+	text-align: center;
+	margin:10px 0 10px 0;
+}
+
 .content-post-wrap h3 {
 	font-family: 'Courgette', cursive;
 	font-size: 2em;
@@ -107,12 +112,8 @@ nav ul li:hover {
  	font-weight: 300;
 }
 
-.content-post-wrap {
-	text-align: center;
-}
-
 .content-post {
-	display: inline-block;
+	display: block;
 	width: 500px;
 	margin: 20px;
 }
