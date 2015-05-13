@@ -2,132 +2,133 @@
 @import url(http://fonts.googleapis.com/css?family=Courgette:400);
 
 p {
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 1px;
-    font-weight: 300;
-    color: #333;
+	font-family: 'Roboto', sans-serif;
+ 	letter-spacing: 1px;
+ 	font-weight: 300;
+ 	color: #333;
 }
 
 .intro {
-    background: url('../img/header_background.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 720px;
+	background: url('../img/header_background.jpg') no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	height: 720px;
 }
 
 .intro h1 {
-    text-align: center;
-    margin: 0;
-    line-height: 1200px;
-    font-family: 'Courgette', cursive;
-    font-size: 4em;
-    color: #044C29;
-    letter-spacing: 1px;
-    font-weight: 300;
+	text-align: center;
+	margin: 0;
+	line-height: 1200px;
+	font-family: 'Courgette', cursive;
+	font-size: 4em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
 }
 
 nav {
-    text-align: center;
-    background-color: #96ED89;
+	text-align: center;
+	background-color: #96ED89;
 }
 
 ul {
-    display: inline-block;
-    padding: 0;
-    width: 100%;
+	display: inline-block;
+	padding: 0;
+	width: 100%;
 }
 
 nav ul li {
-    display: inline-block;
-    width: 160px;
-    height: 40px;
-    text-align: center;
-    line-height: 42px;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 1px;
-    font-weight: 300;
-    color: #EEE;
-    background-color: #45BF55;
-    border-radius: 4px;
+	display: inline-block;
+	width: 160px;
+	height: 40px;
+	text-align: center;
+	line-height: 42px;
+	font-family: 'Roboto', sans-serif;
+ 	letter-spacing: 1px;
+ 	font-weight: 300;
+ 	color: #EEE;
+	background-color: #45BF55;
+ 	border-radius: 4px;
 }
 
 nav ul li a {
-    display: block;
-    text-decoration: none;
-    width: 160px;
-    height: 40px;
-    color: #FFF;
+	display: block;
+	text-decoration: none;
+	width: 160px;
+	height: 40px;
+	color: #FFF;
 }
 
 nav ul li:hover {
-    background-color: #00261C;
-    color: #EEE;
+	background-color: #00261C;
+	color: #EEE;
 }
 
 .about-section {
-    background-color: #96ED89;
+	background-color: #96ED89;
 }
 
 .about-section h2 {
-    text-align: center;
-    margin-top: 0;
-    font-family: 'Courgette', cursive;
-    font-size: 3em;
-    color: #044C29;
-    letter-spacing: 1px;
-    font-weight: 300;
+	text-align: center;
+	margin-top: 0;
+	font-family: 'Courgette', cursive;
+	font-size: 3em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
 }
 
 .about-section div {
-    text-align: center;
-    margin: 0 auto;
-    width: 800px;
-    height: 300px;
+	text-align: center;
+	margin: 0 auto;
+	width: 800px;
+	height: 300px;
 }
 
 .about-section div img {
-    display: inline-block;
-    width: 80px;
-    margin: 0 30px;
+	display: inline-block;
+	width: 80px;
+	margin: 0 30px; 
 }
 
 /* Sections */
 
 .wrap-container section:nth-of-type(2n+1) {
-    background-color: #96ED89;
-}
-
-.content-post-wrap h3 {
-    font-family: 'Courgette', cursive;
-    font-size: 2em;
-    color: #044C29;
-    letter-spacing: 1px;
-    font-weight: 300;
+	background-color: #96ED89;
 }
 
 .content-post-wrap {
-    text-align: center;
+	text-align: center;
+	margin:10px 0 10px 0;
+}
+
+.content-post-wrap h3 {
+	font-family: 'Courgette', cursive;
+	font-size: 2em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
 }
 
 .content-post {
-    display: inline-block;
-    width: 500px;
-    margin: 20px;
+	display: block;
+	width: 500px;
+	margin: 20px;
 }
 
 .content-post h4 {
-    text-align: left;
-    font-family: 'Courgette', cursive;
-    font-size: 1.3em;
-    color: #044C29;
-    letter-spacing: 1px;
-    font-weight: 300;
+	text-align: left;
+	font-family: 'Courgette', cursive;
+	font-size: 1.3em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
 }
 
 .content-post p {
-    text-align: justify;
+	text-align: justify;
 }
 
 /* CSS du formulaire */
@@ -342,5 +343,4 @@ input[type=submit]{
     width:770px;
     height:350px;
     margin-left:16px;
-    background-color: #aabf26;
 }
