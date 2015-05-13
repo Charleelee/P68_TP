@@ -5,7 +5,6 @@
 window.onload=init;
 
 function init(){
-show_map();
 }
 
 var i=1;
@@ -235,6 +234,7 @@ function calcul_emission_dechet(){
 }
 
 function show_map(){
+    document.getElementById('mapdisplay').style.display="none";
     console.log('google map branché');
     if (navigator.geolocation != null){
         navigator.geolocation.getCurrentPosition(yesgeoloc,nogeoloc);
