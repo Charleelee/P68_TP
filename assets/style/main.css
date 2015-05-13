@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
-@import url(http://fonts.googleapis.com/css?family=Courgette:400);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700);
+
+/* CSS General */
 
 p {
 	font-family: 'Roboto', sans-serif;
@@ -7,6 +9,8 @@ p {
  	font-weight: 300;
  	color: #333;
 }
+
+/* CSS Cover image */
 
 .intro {
 	background: url('../img/header_background.jpg') no-repeat center center fixed; 
@@ -21,12 +25,14 @@ p {
 	text-align: center;
 	margin: 0;
 	line-height: 1200px;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 4em;
 	color: #044C29;
 	letter-spacing: 1px;
  	font-weight: 300;
 }
+
+/* Navigation principal */
 
 nav {
 	text-align: center;
@@ -66,6 +72,8 @@ nav ul li:hover {
 	color: #EEE;
 }
 
+/* Section A Propos */
+
 .about-section {
 	background-color: #96ED89;
 }
@@ -73,7 +81,7 @@ nav ul li:hover {
 .about-section h2 {
 	text-align: center;
 	margin-top: 0;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 3em;
 	color: #044C29;
 	letter-spacing: 1px;
@@ -105,7 +113,7 @@ nav ul li:hover {
 }
 
 .content-post-wrap h3 {
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 2em;
 	color: #044C29;
 	letter-spacing: 1px;
@@ -121,7 +129,7 @@ nav ul li:hover {
 
 .content-post h4 {
 	text-align: left;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lora', serif;
 	font-size: 1.3em;
 	color: #044C29;
 	letter-spacing: 1px;
