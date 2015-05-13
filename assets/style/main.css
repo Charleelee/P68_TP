@@ -114,6 +114,7 @@ nav ul li:hover {
 
 .content-post {
 	display: inline-block;
+    vertical-align: top;
 	width: 500px;
 	margin: 20px;
 }
