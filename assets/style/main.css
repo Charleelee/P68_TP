@@ -113,7 +113,7 @@ nav ul li:hover {
 }
 
 .content-post {
-	display: block;
+	display: inline-block;
 	width: 500px;
 	margin: 20px;
 }
@@ -129,6 +129,28 @@ nav ul li:hover {
 
 .content-post p {
 	text-align: justify;
+}
+
+.content-post a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #044C29;
+}
+
+.content-post footer p {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-weight: 300;
+    text-align: right;
+    color: #333;
+}
+
+.content-post footer p a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 300;
+    color: #044C29;
 }
 
 /* CSS du formulaire */
