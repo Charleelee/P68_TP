@@ -80,3 +80,40 @@ nav ul li:hover {
 	width: 80px;
 	margin: 0 30px; 
 }
+
+/* Sections */
+
+.wrap-container section:nth-of-type(2n+1) {
+	background-color: #96ED89;
+}
+
+.content-post-wrap h3 {
+	font-family: 'Courgette', cursive;
+	font-size: 2em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
+}
+
+.content-post-wrap {
+	text-align: center;
+}
+
+.content-post {
+	display: inline-block;
+	width: 500px;
+	margin: 20px;
+}
+
+.content-post h4 {
+	text-align: left;
+	font-family: 'Courgette', cursive;
+	font-size: 1.3em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
+}
+
+.content-post p {
+	text-align: justify;
+}
