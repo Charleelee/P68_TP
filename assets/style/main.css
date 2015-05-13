@@ -336,18 +336,29 @@ input[type=submit]{
     margin-left:5px;
 }
 
+#error {
+    margin-left:10px;
+}
+
 #map {
-    width:770px;
-    height:350px;
     margin-left:16px;
 }
 
 #legend {
     background: white;
     padding: 10px;
-    display:none;
-}
+    display: none;
 
+}
+.animate {
+    animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-name: scroll;
+    animation-duration: 2s;
+}
 .yellow {
     width:10px;
     height:10px;
@@ -371,3 +382,40 @@ input[type=submit]{
     border: solid #25460f 2px;
     display:inline-block;
 }
+
+@keyframes scroll {
+    0%{
+        width:0;
+        height:0;
+    }
+   100% {
+    width:770px;
+    height:350px;
+    }
+
+
+}
+
+@-moz-keyframes scroll {
+
+    0%{
+        width:0;
+        height:0;
+    }
+    100% {
+        width:770px;
+        height:350px;
+    }
+}
+
+
+@-webkit-keyframes scroll {
+    0%{
+        width:0;
+        height:0;
+    }
+    100% {
+        width:770px;
+        height:350px;
+    }
+ }

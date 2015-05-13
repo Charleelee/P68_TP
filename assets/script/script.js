@@ -252,10 +252,13 @@ function show_map(){
 
     function nogeoloc(error){
         document.getElementById('error').innerHTML="Vous n'avez pas autoriser votre navigateur à vous localiser";
+        console.log('geoloc refusé');
     }
 }
 
 function affich_carte(pos) {
+
+
     var latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
     var map_options = {
         zoom: 11,
@@ -344,6 +347,16 @@ function affich_carte(pos) {
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
         document.getElementById('legend'));
 
-}
+    var map1 = document.getElementById('map');
+    map1.className='animate';
 
+    if ( map1.className=="animate") {
+        console.log('resized');
+        google.maps.event.trigger(map, 'resize');
+    }
+    setTimeout(function(){
+    google.maps.event.trigger(map, 'resize');
+    }, 1500);
+
+}
 
