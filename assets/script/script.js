@@ -249,21 +249,79 @@ function affich_carte(pos) {
         zoomControl: true
     };
     var map = new google.maps.Map(document.getElementById('map'), map_options);
+
     var marker = new google.maps.Marker({
         position:  new google.maps.LatLng(45.548141, -73.624684),
         map: map,
         title:"Villeray"
     });
+    var infowindow = new google.maps.InfoWindow({
+        content: 'Taux de pollution : 13%'
+    });
+    google.maps.event.addListener(marker, 'mouseover', function() {
+        infowindow.open(map,marker);
+        infowindow2.close(map, marker2);
+        infowindow3.close(map, marker3);
+    });
+
     var marker2 = new google.maps.Marker({
         position: latlng,
         map: map,
-        title:"Position actuelle",
-        visible:true,
-        labelContent: "Je suis la"
+        title:"Position actuelle"
     });
+    var infowindow2 = new google.maps.InfoWindow({
+        content: 'Taux de pollution : 19%'
+    });
+    google.maps.event.addListener(marker2, 'mouseover', function() {
+        infowindow2.open(map,marker2);
+        infowindow.close(map,marker);
+        infowindow3.close(map,marker3);
+    });
+
     var marker3 = new google.maps.Marker({
         position: new google.maps.LatLng(45.523569, -73.589048),
         map: map,
         title:"Plateau Mont-royal"
     });
+    var infowindow3 = new google.maps.InfoWindow({
+        content: 'Taux de pollution : 28%'
+    });
+    google.maps.event.addListener(marker3, 'mouseover', function() {
+        infowindow3.open(map,marker3);
+        infowindow2.close(map,marker2);
+        infowindow.close(map,marker);
+    });
+
+
+    var circle = new google.maps.Circle({
+        map: map,
+        radius: 1263,
+        strokeColor: '#325E14',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.35,
+        fillColor: '#325E14'
+
+    });
+    var circle2 = new google.maps.Circle({
+        map: map,
+        radius: 2063,
+        strokeColor: '#e5e120',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.35,
+        fillColor: '#e5e120'
+    });
+    var circle3 = new google.maps.Circle({
+        map: map,
+        radius: 1063,
+        strokeColor: '#BF2012',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.35,
+        fillColor: '#BF2012'
+    });
+    circle.bindTo('center', marker, 'position');
+    circle2.bindTo('center', marker2, 'position');
+    circle3.bindTo('center', marker3, 'position');
 }
