@@ -169,7 +169,7 @@ nav ul li:hover {
 
 .main-footer {
     text-align: center;
-    height: 300px;
+    height: 250px;
     background-color: #00261C;
 }
 
@@ -184,6 +184,23 @@ nav ul li:hover {
     text-decoration: none;
     color: #EEE;
 }
+
+.main-footer .footer-icons {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+}
+
+.footer-icons li {
+    display: inline-block;
+    margin: 15px;
+}
+
+.footer-icons li a img {
+    width: 100px;
+}
+
+
 
 /* CSS du formulaire */
 
