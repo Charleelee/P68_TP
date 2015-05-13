@@ -171,9 +171,6 @@ form > fieldset{
     margin-bottom: 10px;
 }
 
-select{
-    color: #989898;
-}
 
 input[type=text], input[type=number], input[type=number],input[type=email], select{
     display: block;
@@ -223,7 +220,7 @@ input[type=number]{
     margin-left: 17px;
 }
 
-input[type=text]:invalid + .fa, input[type=email]:invalid + .fa {
+input[type=text]:invalid + .fa, input[type=email]:invalid + .fa,.invalid {
     color: rgba(219, 16, 42, 0.87);
     border-left: solid 1px #ccc;
 }
@@ -236,16 +233,15 @@ input:invalid:before {
     content: 'attr(title)';
 }
 
+input[type=text]:valid + .fa, input[type=email]:valid + .fa{
+    color:  #95d9a3;
+    border-left: solid 1px #ccc;
+}
 
-input[type=text]:valid, input[type=email]:valid{
+input[type=text]:valid, input[type=email]:valid, .valid{
     background-color: #95d9a3;
     border:solid #71a37b 3px;
     opacity: 0.5;
-}
-
-input[type=text]:valid + .fa, input[type=email]:valid + .fa{
-    color:#71a37b;
-    border-left: solid 1px #ccc;
 }
 
 
@@ -269,13 +265,14 @@ form > footer > p {
     float:left;
     margin-left: 0;
     margin-right: 10px;
+    padding: 0 15px;
 }
 
 input[type="button"], input[type="submit"] {
     float: right;
     height: 39px;
     margin: 10px 0 0 20px;
-    padding: 0 25px;
+    padding: 0 15px;
     border: 0;
     text-decoration: none;
     color: #fff;
@@ -285,7 +282,7 @@ input[type="button"], input[type="submit"] {
 
 input[type="button"]{
     margin:0;
-    margin-left:5px;
+    margin-left: 5px;
 }
 
 input[type=number]{
@@ -333,10 +330,10 @@ input[type="radio"]{
 }
 
 input[type=submit]{
-    margin-left:0;
     margin-top:0;
-    width:110px;
+    width:70px;
     padding:0;
+    margin-left:5px;
 }
 
 #map {

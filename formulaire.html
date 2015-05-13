@@ -25,7 +25,7 @@
                     <i class="input_icon fa fa-lock"></i>
                 </label>
                 <label class="input_label">
-                    <input id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
+                    <input onblur="validation_mdp()" id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                     <i class="input_icon fa fa-lock"></i>
                 </label>
             </fieldset>
@@ -42,7 +42,7 @@
                 </div>
                 <div>
                     <label for="genre">
-                        <select required="required" id="genre" name="Genre">
+                        <select class="invalid" onblur="validation_sexe()" required="required" id="genre" name="Genre">
                             <option>Genre</option>
                             <option>Homme</option>
                             <option>Femme</option>

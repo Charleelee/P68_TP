@@ -23,45 +23,60 @@ function affiche_taux_final(){
     $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input type="Submit" value="Soumettre"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+ ' Kg Co2 éq</p>');
 }
 
+function validation_sexe() {
 
-function slide(){
-    var mdp=document.getElementById('mdp');
-    var verifmdp=document.getElementById('verifmdp');
+    var select = document.getElementById('genre');
 
-    if ( mdp.value != verifmdp.value ){
+    if (select.value == "Genre") {
+        alert('Vous devez choisir un sexe');
+    } else {
+        select.className = "valid";
+    }
+
+}
+
+function validation_mdp(){
+    var mdp = document.getElementById('mdp');
+    var verifmdp = document.getElementById('verifmdp');
+
+    if (mdp.value != verifmdp.value) {
         alert('Les mot de passe ne correspondent pas !');
-        verifmdp.value="";
-    }else{
-
-    if (i==1){
-        fieldset[i-1].className="inactive";
-        fieldset[i].className="inactive";
-        fieldset[i+1].className="active";
-    }
-    i++;
-    fieldset[i-1].className="inactive";
-    fieldset[i].className="active";
-
-    if ( fieldset[2].className=="active" ) {
-        affiche_taux();
-    }
-
-    if ( fieldset[i].id =="fieldset3"){
-        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 1/3 : Transport";
-    }
-
-    if ( fieldset[i].id =="fieldset4"){
-        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 2/3 : Bâtiment";
-    }
-    if ( fieldset[4].className =="active") {
-        document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 3/3 : Matières résiduelles";
-        affiche_taux_final();
-    }
-    else {
-        affiche_taux();
-    }
+        verifmdp.value = "";
     }
 }
+
+function slide() {
+
+
+            if (i == 1) {
+                fieldset[i - 1].className = "inactive";
+                fieldset[i].className = "inactive";
+                fieldset[i + 1].className = "active";
+            }
+            i++;
+            fieldset[i - 1].className = "inactive";
+            fieldset[i].className = "active";
+
+            if (fieldset[2].className == "active") {
+                affiche_taux();
+            }
+
+            if (fieldset[i].id == "fieldset3") {
+                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 1/3 : Transport";
+            }
+
+            if (fieldset[i].id == "fieldset4") {
+                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 2/3 : Bâtiment";
+            }
+            if (fieldset[4].className == "active") {
+                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 3/3 : Matières résiduelles";
+                affiche_taux_final();
+            }
+            else {
+                affiche_taux();
+            }
+        }
+
 
 function slide_back() {
     if (i==2){
