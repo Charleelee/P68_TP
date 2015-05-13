@@ -235,7 +235,7 @@ function calcul_emission_dechet(){
 }
 
 function show_map(){
-    console.log('branched');
+    console.log('google map branché');
     if (navigator.geolocation != null){
         navigator.geolocation.getCurrentPosition(yesgeoloc,nogeoloc);
     }else{
@@ -243,7 +243,7 @@ function show_map(){
     }
 
     function yesgeoloc(pos){
-        console.log('working');
+        console.log('geoloc accepté');
         var latitude = pos.coords.latitude;
         var longitude = pos.coords.longitude;
         console.log(latitude,longitude);
@@ -339,4 +339,11 @@ function affich_carte(pos) {
     circle.bindTo('center', marker, 'position');
     circle2.bindTo('center', marker2, 'position');
     circle3.bindTo('center', marker3, 'position');
+    document.getElementById('legend').style.display='block';
+
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+        document.getElementById('legend'));
+
 }
+
+

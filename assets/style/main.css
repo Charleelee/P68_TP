@@ -341,3 +341,33 @@ input[type=submit]{
     height:350px;
     margin-left:16px;
 }
+
+#legend {
+    background: white;
+    padding: 10px;
+    display:none;
+}
+
+.yellow {
+    width:10px;
+    height:10px;
+    background-color: #e5e120;
+    border: solid #cbc81a 2px;
+    display:inline-block;
+}
+
+.red {
+    width:10px;
+    height:10px;
+    background-color: #BF2012;
+    border: solid #7b150c 2px;
+    display:inline-block;
+}
+
+.green {
+    width:10px;
+    height:10px;
+    background-color:#325E14;
+    border: solid #25460f 2px;
+    display:inline-block;
+}
