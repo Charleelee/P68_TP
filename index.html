@@ -15,7 +15,7 @@
 			<h1>Initiative Eco</h1>
 		</div>
 		<header class="header-main">
-			<nav>
+			<nav id="nav">
 				<ul>
 					<li><a href="#about">A propos de nous</a></li>
 					<li><a href="#">Logement</a></li>
@@ -29,7 +29,7 @@
 		<section id="Modalwindow" class="Modaldialog">
             <div id="form_wrapper">
             <a href="#close"  class="close">X</a>
-                <form method="get" id="form1" action="http://www.google.com">
+                <form method="get" id="form1" action="#about">
                     <header id="header">Inscrivez-vous</header>
                     <fieldset id="fieldset1">
                         <label class="input_label">
@@ -293,8 +293,8 @@
 			</article>
 		</section>
 		<section class="map">
-		    <div id="mapdisplay" onclick="show_map()">
-                <p>Cliquer pour afficher la carte</p>
+		    <div id="mapdisplay" onmouseover="show_map()">
+                <p>Survolez pour afficher la carte</p>
             </div>
 		    <figure id="map"></figure>
             <figure id="legend">
