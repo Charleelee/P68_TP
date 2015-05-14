@@ -149,6 +149,10 @@ nav ul li:hover {
     color: #044C29;
 }
 
+.content-post img {
+    width: 500px;
+}
+
 .content-post footer p {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
