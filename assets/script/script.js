@@ -2,10 +2,7 @@
  * Created by École on 2015-05-06.
  */
 "use strict";
-window.onload=init;
-
-function init(){
-}
+document.addEventListener('DOMContentLoaded', controls);
 
 var i=1;
 var fieldset=document.getElementsByTagName("fieldset");
@@ -232,6 +229,16 @@ function calcul_emission_dechet(){
     taux3 = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
     taux = taux3;
     affiche_taux_final();
+}
+
+function controls() {
+    console.log('f control loaded');
+    var map_anim = document.getElementById('map');
+    map_anim.addEventListener('animationend', focus_on_map);
+}
+
+function focus_on_map(){
+    document.body.scrollTop = 6500;
 }
 
 function show_map(){
