@@ -61,14 +61,14 @@ function slide() {
             }
 
             if (fieldset[i].id == "fieldset3") {
-                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 1/3 : Transport";
+                document.getElementById('header').innerHTML = "Étape 1/3 : Transport";
             }
 
             if (fieldset[i].id == "fieldset4") {
-                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 2/3 : Bâtiment";
+                document.getElementById('header').innerHTML  = "Étape 2/3 : Bâtiment";
             }
             if (fieldset[4].className == "active") {
-                document.getElementsByTagName('HEADER')[0].innerHTML = "Étape 3/3 : Matières résiduelles";
+                document.getElementById('header').innerHTML  = "Étape 3/3 : Matières résiduelles";
                 affiche_taux_final();
             }
             else {
@@ -82,7 +82,7 @@ function slide_back() {
         fieldset[i-1].className="active";
         fieldset[i].className="inactive";
         fieldset[i-2].className="active";
-        document.getElementsByTagName('HEADER')[0].innerHTML="Inscrivez-vous";
+        document.getElementById('header').innerHTML ="Inscrivez-vous";
         $('#footer').html('<input id="next" onclick="slide()" type="button" value="Suivant"/>');
     }
 
@@ -93,13 +93,13 @@ function slide_back() {
     i--;
 
     if ( fieldset[i].id =="fieldset4"){
-        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 2/3 : Bâtiment";
+        document.getElementById('header').innerHTML="Étape 2/3 : Bâtiment";
         affiche_taux();
     }
 
     if ( fieldset[2].className=="active" ) {
         affiche_taux();
-        document.getElementsByTagName('HEADER')[0].innerHTML="Étape 1/3 : Transport";
+        document.getElementById('header').innerHTML="Étape 1/3 : Transport";
     }
 
 
@@ -110,11 +110,11 @@ var multiplicateur = 0;
 
 function calcul_taux() {
     var fieldset3 = document.getElementById("fieldset3");
-    var km_box = fieldset3.getElementsByTagName('label')[1];
-    var essence_box = fieldset3.getElementsByTagName('label')[2];
-    var diesel_radio = fieldset3.getElementsByTagName('label')[3];
-    var essence_radio = fieldset3.getElementsByTagName('label')[4];
-    var qte_deplacement_range = fieldset3.getElementsByTagName('label')[5];
+    var km_box = document.getElementById('km_box_label');
+    var essence_box = document.getElementById('essence_label');
+    var diesel_radio = document.getElementById('diesel_label');
+    var essence_radio = document.getElementById('essence2_label');
+    var qte_deplacement_range = document.getElementById('qte_deplacement_label');
     var moyen_transport = document.getElementById('moyen_transport').selectedOptions[0].id;
 
     switch (moyen_transport) {
@@ -187,6 +187,7 @@ function calcul_taux() {
 }
 
 function calcul_emission(){
+    console.log('f calculemission');
     var multipl = multiplicateur;
     var nbr_km = parseInt(document.getElementById('km_box').value);
     var nbr_essence = parseInt(document.getElementById('essence').value);

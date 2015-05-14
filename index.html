@@ -5,6 +5,7 @@
     <meta name="author" content="Jorel Amthor & Charles-Élie Bedard"/>
     <title></title>
 	<link rel="stylesheet" href="assets/style/normalize.css">
+    <link rel="stylesheet" href="assets/font-awesome-4.3.0/css/font-awesome.css">
     <link rel="stylesheet" href="assets/style/main.css"/>
 </head>
 <body>
@@ -21,10 +22,118 @@
 					<li><a href="#">Transports</a></li>
 					<li><a href="#">Alimentation</a></li>
 					<li><a href="#">Quotidien</a></li>
-					<li>Questionnaire</li>
+					<li><a href="#Modalwindow">Questionnaire</a></li>
 				</ul>
 			</nav>
 		</header>
+		<section id="Modalwindow" class="Modaldialog">
+            <div id="form_wrapper">
+            <a href="#close"  class="close">X</a>
+                <form method="get" id="form1" action="http://www.google.com">
+                    <header id="header">Inscrivez-vous</header>
+                    <fieldset id="fieldset1">
+                        <label class="input_label">
+                            <input pattern="[a-zA-Z]{3,12}" required="required" type="text" autofocus="autofocus" placeholder="Nom d'utilisateur" title="Votre pseudo doit faire entre 3 et 12 caractères"/>
+                            <i class="input_icon fa fa-user"></i>
+                        </label>
+                        <label class="input_label">
+                            <input required="required" type="email" placeholder="Adresse e-mail" title="Votre adresse email de doit pas contenir de caractères spéciaux"/>
+                            <i class="input_icon fa fa-envelope-o"></i>
+                        </label>
+                        <label class="input_label">
+                            <input id="mdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$" required="required" type="text" placeholder="Mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
+                            <i class="input_icon fa fa-lock"></i>
+                        </label>
+                        <label class="input_label">
+                            <input onblur="validation_mdp()" id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
+                            <i class="input_icon fa fa-lock"></i>
+                        </label>
+                    </fieldset>
+                    <fieldset name="info_civil" id="fieldset2">
+                        <div class="align">
+                            <label class="input_label">
+                                <input required="required" type="text" placeholder="Nom"/>
+                            </label>
+                        </div>
+                        <div class="align">
+                            <label  class="input_label">
+                                <input required="required" type="text" placeholder="Prénom"/>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="genre">
+                                <select class="invalid" onblur="validation_sexe()" required="required" id="genre" name="Genre">
+                                    <option>Genre</option>
+                                    <option>Homme</option>
+                                    <option>Femme</option>
+                                </select>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset name="Émission de gaz" id="fieldset3" class="inactive">
+                        <label id="moyen_transport_label" class="input_label">Votre moyen de transport:
+                            <select onchange="calcul_taux()" id="moyen_transport">
+                                <option selected="selected">Selectioner</option>
+                                <option id="Voiture">Voiture</option>
+                                <option id="métro">Métro et/ou bus</option>
+                                <option id="VUS">Camion léger ( VUS, camionette )</option>
+                                <option id="covoiturage">Covoiturage</option>
+                                <option id="velo">Vélo</option>
+                                <option id="moto">Moto</option>
+                                <option id="pied">À pied</option>
+                            </select>
+                        </label>
+                        <label id="km_box_label" for="km_box" class= "inactive input_label">Kilomètre parcourus ( Km ):
+                            <input onkeyup="calcul_emission()"  value="0"  type="number" id="km_box"/>
+                        </label>
+                        <label id="essence_label" for="essence" class="inactive input_label">Essence consommé ( L ) :
+                            <input onkeyup="calcul_emission()"  value="0" id="essence" type="number" placeholder="L"/>
+                        </label>
+                        <label id="diesel_label" for="diesel" class="align inactive input_checkbox">Diesel
+                            <input onclick="calcul_emission()" checked="checked" name="type_essence" id="diesel" type="radio"/>
+                        </label>
+                        <label id="essence2_label" for="essence2" class="align inactive input_checkbox">Essence
+                            <input onclick="calcul_emission()" name="type_essence"  id="essence2" type="radio"/>
+                        </label>
+                        <label id="qte_deplacement_label" for="qte_deplacement" class="inactive">Déplacements par semaine :
+                            <input onclick="calcul_emission()" type="range" id="qte_deplacement" value="1" min="1" max="50" step="1" oninput="display_qte_deplacement.value = qte_deplacement.value"/>
+                            <output for="qte_deplacement" name="display_qte_deplacement"> 1</output>
+                        </label>
+                    </fieldset>
+                    <fieldset id="fieldset4" class="inactive">
+                        <label for="electricité" class="input_label">Consommation d'éléctricité ( kWh ) :
+                            <input oninput="calcul_emission_batiment()" id="electricité" type="number"  value="0"/>
+                        </label>
+                        <label for="gaz" class="input_label">Consommation de gaz ( m3 ) :
+                            <input oninput="calcul_emission_batiment()"  id="gaz" type="number" value="0"/>
+                        </label>
+                        <label for="propane" class="input_label">Consommation de propane ( L ) :
+                            <input oninput="calcul_emission_batiment()"  id="propane" type="number" value="0"/>
+                        </label>
+                        <label for="mazout" class="input_label">Consommation de mazout ( L ) :
+                            <input oninput="calcul_emission_batiment()" id="mazout" type="number" value="0"/>
+                        </label>
+                        <label for="bois" class="input_label">Consommation de bois dans un pôele ( Kg ) :
+                            <input oninput="calcul_emission_batiment()" id="bois" type="number" value="0"/>
+                        </label>
+                    </fieldset>
+                    <fieldset id="fieldset5" class="inactive">
+                        <label for="compostage" class="input_label">Matières déstinées au compostage ( Kg ) :
+                            <input oninput="calcul_emission_dechet()" id="compostage" type="number" value="0"/>
+                        </label>
+                        <label for="recyclage" class="input_label">Matières déstinées au recyclage ( Kg ) :
+                            <input oninput="calcul_emission_dechet()" id="recyclage" type="number" value="0"/>
+                        </label>
+                        <label for="enfouissement" class="input_label">Matières déstinées a l'enfouissement ( Kg ) :
+                            <input oninput="calcul_emission_dechet()" id="enfouissement" type="number" value="0"/>
+                        </label>
+                    </fieldset>
+                    <footer id="footer">
+                        <input id="next" onclick="slide()" type="button" value="Suivant"/>
+                    </footer>
+                </form>
+            </div>
+        </section>
 		<section id="about" class="about-section">
 			<h2>Lorm Ipsum</h2>
 			<div>
@@ -184,7 +293,7 @@
 			</article>
 		</section>
 		<section class="map">
-		    <div id="mapdisplay" onclick="show_map()"">
+		    <div id="mapdisplay" onclick="show_map()">
                 <p>Cliquer pour afficher la carte</p>
             </div>
 		    <figure id="map"></figure>
@@ -227,5 +336,6 @@
 	</div>
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src="assets/script/script.js"></script>
+<script src="assets/script/jquery.js"></script>
 </body>
 </html>    
