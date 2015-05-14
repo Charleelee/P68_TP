@@ -1,0 +1,147 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700);
+
+/* CSS General */
+
+p {
+	font-family: 'Roboto', sans-serif;
+ 	letter-spacing: 1px;
+ 	font-weight: 300;
+ 	color: #333;
+}
+
+/* CSS Cover image */
+
+.intro {
+    display: none;
+}
+
+/* CSS Navigation principal */
+
+nav {
+	text-align: inital;
+}
+
+ul {
+	display: block;
+	padding: 0;
+    margin: 0;
+	width: 100%;
+}
+
+nav ul li {
+	display: block;
+    margin: 10px;
+	width: 96%;
+	height: 40px;
+	text-align: center;
+	line-height: 42px;
+	font-family: 'Roboto', sans-serif;
+ 	letter-spacing: 1px;
+ 	font-weight: 300;
+}
+
+nav ul li:nth-of-type(1) {
+    margin-top: 0;
+}
+
+nav ul li:nth-of-type(5) {
+    margin-bottom: 0;
+}
+
+nav ul li:nth-of-type(6) {
+    display: none;
+}
+
+nav ul li a {
+	display: block;
+	text-decoration: none;
+	width: 96%;
+	height: 40px;
+	color: #FFF;
+}
+
+/* CSS Section A Propos */
+
+.about-section {
+	width: 100%;
+}
+
+.about-section h2 {
+	text-align: center;
+	margin-top: 0;
+	font-family: 'Lora', serif;
+	font-size: 3em;
+	color: #044C29;
+	letter-spacing: 1px;
+ 	font-weight: 300;
+}
+
+.about-section div {
+	text-align: center;
+	margin: 0 auto;
+	width: 90%;
+	height: 300px;
+}
+
+.about-section div img {
+	display: inline-block;
+	width: 80px;
+	margin: 0 30px; 
+}
+
+/* CSS Sections */
+
+.content-post-wrap {
+	text-align: center;
+	margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content-post {
+	display: block;
+    vertical-align: inital;
+	width: 90%;
+	margin: 20px;
+}
+
+.content-post footer p {
+    margin-bottom: 0;
+}
+
+/* CSS Section Footer */ 
+
+.main-footer {
+    height: 100%;
+}
+
+.main-footer ul:nth-of-type(1) {
+    display: none;
+}
+
+.main-footer ul:nth-of-type(2) {
+    display: none;
+}
+
+.main-footer ul:nth-of-type(3) {
+    display: none;
+}
+
+.footer-icons li a img {
+    width: 60px;
+}
+
+
+
+/* CSS du formulaire */
+
+#Modalwindow {
+    display: none;
+}
+
+/* CSS Map Section */
+
+.map {
+    display: none;
+}
