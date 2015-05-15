@@ -549,6 +549,10 @@ section.map, #mapdisplay > p {
     box-shadow: 1px 1px 3px #000;
 }
 
+.select-invalid::after {
+    content:attr(title);
+}
+
 .close:hover {
 background: #00d9ff;
  }

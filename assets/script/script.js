@@ -44,9 +44,9 @@ function validation_sexe() {
     var select = document.getElementById('genre');
 
     if (select.value == "Genre") {
-        alert('Vous devez choisir un sexe');
+        document.getElementById('check').className="invalid select-invalid";
     } else {
-        select.className = "valid";
+        document.getElementById('check').className="";
     }
 }
 
@@ -57,7 +57,7 @@ function validation_mdp(){
     var verifmdp = document.getElementById('verifmdp');
 
     if (mdp.value != verifmdp.value) {
-        alert('Les mot de passe ne correspondent pas !');
+        document.getElementById('check2').className="select-invalid";
         verifmdp.value = "";
     }
 }
