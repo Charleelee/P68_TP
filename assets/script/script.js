@@ -44,9 +44,9 @@ function validation_sexe() {
     var select = document.getElementById('genre');
 
     if (select.value == "Genre") {
-        document.getElementById('check').className="invalid select-invalid";
+        document.getElementById('label_genre').className+=" select-invalid";
     } else {
-        document.getElementById('check').className="";
+        document.getElementById('label_genre').className="input_label";
     }
 }
 
@@ -57,8 +57,11 @@ function validation_mdp(){
     var verifmdp = document.getElementById('verifmdp');
 
     if (mdp.value != verifmdp.value) {
-        document.getElementById('check2').className="select-invalid";
+        document.getElementById('label_mdp').className+=" select-invalid";
         verifmdp.value = "";
+    }
+    else{
+        document.getElementById('label_mdp').className="input_label";
     }
 }
 

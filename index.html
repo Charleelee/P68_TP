@@ -45,8 +45,8 @@
                             <input id="mdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$" required="required" type="text" placeholder="Mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                             <i class="input_icon fa fa-lock"></i>
                         </label>
-                        <div id="check2" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total">
-                        <label class="input_label">
+                        <div>
+                        <label id="label_mdp" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total" class="input_label">
                             <input onblur="validation_mdp()" id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                             <i class="input_icon fa fa-lock"></i>
                         </label>
@@ -63,9 +63,9 @@
                                 <input required="required" type="text" placeholder="Prénom"/>
                             </label>
                         </div>
-                        <div id="check" title="Vous devez chosir un sexe !">
-                            <label for="genre">
-                                <select class="invalid" onblur="validation_sexe()" required="required" id="genre" name="Genre">
+                        <div class="clearfix">
+                            <label id="label_genre" for="genre" title="Vous devez chosir un sexe !">
+                                <select class="invalid" onblur="validation_sexe()" onchange="validation_sexe()" title="Vous devez chosir un sexe !" required="required" id="genre" name="Genre">
                                     <option>Genre</option>
                                     <option>Homme</option>
                                     <option>Femme</option>
