@@ -26,22 +26,16 @@ function focus_on_map(){
 //Initialisation et déclaration de quelques variables globale, et quelques variables "raccourcisÉ
 var i= 1, taux = 0, taux1 = 0, taux2  = 0, taux3 = 0;
 var fieldset=document.getElementsByTagName("fieldset");
+var header=document.getElementById('header');
 
 //Variable pour la map google maps
 var latitude;
 var longitude;
 
-
 //la fonction affiche_taux a pour but de modifier l'innerHTML du resultat pour donner le resultat du taux d'emission en temps
 //réel
 function affiche_taux(){
-    $('#result').html('Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq</p>');
-}
-
-//La function affiche_taux_final() à la même vocation que affiche_taux() a l'exception près que celle-ci "réécrit" le footer
-// et génèrera un boutton submit a la place du boutton "Suivant"
-function affiche_taux_final(){
-    $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input type="Submit" value="Soumettre"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+ ' Kg Co2 éq</p>');
+    $('#result').html('Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq');
 }
 
 //La fonction validation_sexe() est une fonction de validation permettant de determiner si l'utilisateur a bien choisi un sexe.
@@ -93,16 +87,22 @@ function slide() {
 
     //On change le header du formulaire en fonction du fieldset activé.
     if (fieldset[i].id == "fieldset3") {
-        document.getElementById('header').innerHTML = "Étape 1/3 : Transport";
+        header.innerHTML = "Étape 1/3 : Transport";
     }
 
     if (fieldset[i].id == "fieldset4") {
-        document.getElementById('header').innerHTML  = "Étape 2/3 : Bâtiment";
+        header.innerHTML  = "Étape 2/3 : Bâtiment";
     }
-    //Si le dernier fieldset est activé on lance la fonction d'affichage du taux final
+    //Si le dernier fieldset est activé on lance la fonction d'affichage normal, et on modifie l'input "suivant"
+    // en le transformant en input submit
     if (fieldset[4].className == "active") {
-        document.getElementById('header').innerHTML  = "Étape 3/3 : Matières résiduelles";
-        affiche_taux_final();
+        header.innerHTML  = "Étape 3/3 : Matières résiduelles";
+        affiche_taux();
+        var next = document.getElementById('next');
+        next.onclick="";
+        next.type="submit";
+        next.value="Soumettre";
+        next.id='submit';
     }
     else {
         affiche_taux();
@@ -118,7 +118,7 @@ function slide_back() {
         fieldset[i-1].className="active";
         fieldset[i].className="inactive";
         fieldset[i-2].className="active";
-        document.getElementById('header').innerHTML ="Inscrivez-vous";
+        header.innerHTML ="Inscrivez-vous";
     }
 
     //Sinon le fieldset sur lequel on se trouve devient inactif, et le suivant s'active
@@ -131,14 +131,21 @@ function slide_back() {
     i--;
 
     //On modifie le contenu du header en fonction du fieldset sur lequel on se trouve
-    if ( fieldset[i].id =="fieldset4"){
-        document.getElementById('header').innerHTML="Étape 2/3 : Bâtiment";
-        affiche_taux();
-    }
-
     if ( fieldset[2].className=="active" ) {
         affiche_taux();
-        document.getElementById('header').innerHTML="Étape 1/3 : Transport";
+        header.innerHTML="Étape 1/3 : Transport";
+    }
+
+    //Lorsque l'on passe du dernier fieldset a l'avant dernier, on lance la fonction d'affichage normal mais on modifie l'input submit
+    //par l'input 'suivant'
+    if ( fieldset[i].id =="fieldset4"){
+        header.innerHTML="Étape 2/3 : Bâtiment";
+        affiche_taux();
+        var submit = document.getElementById('submit');
+        submit.onclick=slide;
+        submit.type="button";
+        submit.value="Suivant";
+        submit.id='next';
     }
 }
 
