@@ -417,6 +417,10 @@ input[type=submit]{
     margin: 10px auto 10px auto;
 }
 
+#genre {
+    clear:both;
+}
+
 #map {
 width:770px;
 height:0;
@@ -505,11 +509,8 @@ section.map, #mapdisplay > p {
     left: 0;
     background: rgba(0,0,0,0.8);
     z-index: 99999;
-    opacity:0;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
     pointer-events: none;
+    opacity:0;
 }
 
 .Modaldialog:target {

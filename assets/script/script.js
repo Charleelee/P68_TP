@@ -4,15 +4,17 @@
 "use strict";
 
 // Au chargement de la page on éxécute la fonction controls()
-document.addEventListener('DOMContentLoaded', controls);
+document.addEventListener('DOMContentLoaded', init);
 
 //La fonction controls() à pour but de d'éxécuter la fonction focus_on_map() lors de la fin de l'animation
-//qui agrandit le container de la carte Google Maps
-
-function controls() {
+//qui agrandit le container de la carte Google Maps.
+//Elle donne un effet de transition a l'ID Modalwindow, sans quoi, au chargement de la page, lorsque ce container
+//apparaissait en opacity:0, une transition se faisait du 1 vers le 0, affichant pendant un bref moment le modalwindow.
+function init() {
     console.log('f control loaded');
     var map_anim = document.getElementById('map');
     map_anim.addEventListener('animationend', focus_on_map);
+    document.getElementById('Modalwindow').style.transition="opacity 400ms ease-in";
 }
 
 //La fonction focus_on_map() a pour but de center la carte sur l'ecran en forçant un scroll du body. Sans cette fonction
@@ -30,15 +32,14 @@ var latitude;
 var longitude;
 
 
-//la fonction affiche_taux() a pour but d'afficher 2 boutons dans le footer du questionnaire ainsi que d'afficher le taux d'emission
-//cette fonction est appelé a plusieurs moment ( onchange des input, onclick des button etc. ) permettant
-//d'afficher un resultat en temps " réel ".
+//la fonction affiche_taux a pour but de modifier l'innerHTML du resultat pour donner le resultat du taux d'emission en temps
+//réel
 function affiche_taux(){
-    $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq</p>');
+    $('#result').html('Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq</p>');
 }
 
-//La function affiche_taux_final() à la même vocation que affiche_taux() a l'exception près que celle-ci génèrera un boutton
-//submit a la place du boutton "Suivant"
+//La function affiche_taux_final() à la même vocation que affiche_taux() a l'exception près que celle-ci "réécrit" le footer
+// et génèrera un boutton submit a la place du boutton "Suivant"
 function affiche_taux_final(){
     $('#footer').html('<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input type="Submit" value="Soumettre"/><p id="result">Votre taux d\'emission de Co2 est de ' +taux+ ' Kg Co2 éq</p>');
 }
@@ -118,7 +119,6 @@ function slide_back() {
         fieldset[i].className="inactive";
         fieldset[i-2].className="active";
         document.getElementById('header').innerHTML ="Inscrivez-vous";
-        $('#footer').html('<input id="next" onclick="slide()" type="button" value="Suivant"/>');
     }
 
     //Sinon le fieldset sur lequel on se trouve devient inactif, et le suivant s'active
@@ -325,7 +325,7 @@ function affich_carte(pos) {
     var latlng = new google.maps.LatLng(latitude, longitude);
     var map_options = {
         zoom: 11,
-        center: latlng,
+        center:latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         zoomControl: true
     };
@@ -336,11 +336,10 @@ function affich_carte(pos) {
     //On met des marker sur notre carte a une lat/long spécfique
     var marker = new google.maps.Marker({
         position:  new google.maps.LatLng(45.548141, -73.624684),
-        map: map,
         title:"Villeray"
     });
 
-    //On attribue des bulle infos pour les marqueur
+    //On attribue des bulle infos pour les marq ueur
     var infowindow = new google.maps.InfoWindow({
         content: 'Taux de pollution : 13%'
     });
@@ -368,7 +367,6 @@ function affich_carte(pos) {
 
     var marker3 = new google.maps.Marker({
         position: new google.maps.LatLng(45.523569, -73.589048),
-        map: map,
         title:"Plateau Mont-royal"
     });
     var infowindow3 = new google.maps.InfoWindow({
@@ -431,7 +429,4 @@ function affich_carte(pos) {
     google.maps.event.trigger(map, 'resize');
         document.body.scrollTop = 4500;
     }, 1500);
-
-
-
 }
