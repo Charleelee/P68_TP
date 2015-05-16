@@ -44,9 +44,11 @@ function validation_sexe() {
     var select = document.getElementById('genre');
 
     if (select.value == "Genre") {
-        document.getElementById('label_genre').className+=" select-invalid";
+        document.getElementById('label_genre').className="select-invalid";
     } else {
         document.getElementById('label_genre').className="input_label";
+        document.getElementById('genre').required=false;
+        document.getElementById('genre').className = "input_validation valid";
     }
 }
 
@@ -61,7 +63,7 @@ function validation_mdp(){
         verifmdp.value = "";
     }
     else{
-        document.getElementById('label_mdp').className="input_label";
+        document.getElementById('label_mdp').className="input_label input_validation";
     }
 }
 
@@ -102,7 +104,7 @@ function slide() {
         header.innerHTML  = "Étape 3/3 : Matières résiduelles";
         affiche_taux();
         var next = document.getElementById('next');
-        next.onclick="";
+        next.onclick='';
         next.type="submit";
         next.value="Soumettre";
         next.id='submit';
@@ -354,6 +356,17 @@ function affich_carte(pos) {
         content: 'Taux de pollution : 13%'
     });
 
+    //On créer des cercles sur notre map de 1.263 km
+    var circle = new google.maps.Circle({
+        map: map,
+        radius: 1263,
+        strokeColor: '#325E14',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.35,
+        fillColor: '#325E14'
+    });
+
     //On ferme les bulle infos en fonction de celle qui sont ouverte
     google.maps.event.addListener(marker, 'mouseover', function() {
         infowindow.open(map,marker);
@@ -366,9 +379,21 @@ function affich_carte(pos) {
         map: map,
         title:"Position actuelle"
     });
+
     var infowindow2 = new google.maps.InfoWindow({
         content: 'Taux de pollution : 19%'
     });
+
+    var circle2 = new google.maps.Circle({
+        map: map,
+        radius: 2063,
+        strokeColor: '#e5e120',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.35,
+        fillColor: '#e5e120'
+    });
+
     google.maps.event.addListener(marker2, 'mouseover', function() {
         infowindow2.open(map,marker2);
         infowindow.close(map,marker);
@@ -379,37 +404,11 @@ function affich_carte(pos) {
         position: new google.maps.LatLng(45.523569, -73.589048),
         title:"Plateau Mont-royal"
     });
+
     var infowindow3 = new google.maps.InfoWindow({
         content: 'Taux de pollution : 28%'
     });
-    google.maps.event.addListener(marker3, 'mouseover', function() {
-        infowindow3.open(map,marker3);
-        infowindow2.close(map,marker2);
-        infowindow.close(map,marker);
-    });
 
-    //On créer des cercles sur notre map de 1.263 km
-    var circle = new google.maps.Circle({
-        map: map,
-        radius: 1263,
-        strokeColor: '#325E14',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillOpacity: 0.35,
-        fillColor: '#325E14'
-
-    });
-    //de 2.063km
-    var circle2 = new google.maps.Circle({
-        map: map,
-        radius: 2063,
-        strokeColor: '#e5e120',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillOpacity: 0.35,
-        fillColor: '#e5e120'
-    });
-    // de 1.063 km
     var circle3 = new google.maps.Circle({
         map: map,
         radius: 1063,
@@ -420,10 +419,17 @@ function affich_carte(pos) {
         fillColor: '#BF2012'
     });
 
+    google.maps.event.addListener(marker3, 'mouseover', function() {
+        infowindow3.open(map,marker3);
+        infowindow2.close(map,marker2);
+        infowindow.close(map,marker);
+    });
+
     //Et on vient attacher nos cercles a nos marqueurs préalablement attaché a la carte grâce a leur long/lat
     circle.bindTo('center', marker, 'position');
     circle2.bindTo('center', marker2, 'position');
     circle3.bindTo('center', marker3, 'position');
+    //Le containter pour la legend devient visible une fois que la map s'est chargé avec tout les paramètre
     document.getElementById('legend').style.display='block';
 
     //On attache la légend de la map dans le coin inférieur droit

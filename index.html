@@ -30,7 +30,7 @@
 		<section id="Modalwindow" class="Modaldialog">
             <div id="form_wrapper">
             <a href="#close"  class="close">X</a>
-                <form method="get" id="form1" action="#about">
+                <form method="get" id="form1" action="#nav">
                     <header id="header">Inscrivez-vous</header>
                     <fieldset id="fieldset1">
                         <label class="input_label">
@@ -38,7 +38,7 @@
                             <i class="input_icon fa fa-user"></i>
                         </label>
                         <label class="input_label">
-                            <input required="required" type="email" placeholder="Adresse e-mail" title="Votre adresse email de doit pas contenir de caractères spéciaux"/>
+                            <input required="required" type="email" placeholder="Adresse e-mail" title="Votre adresse email ne doit pas contenir de caractères spéciaux"/>
                             <i class="input_icon fa fa-envelope-o"></i>
                         </label>
                         <label class="input_label">
@@ -46,8 +46,8 @@
                             <i class="input_icon fa fa-lock"></i>
                         </label>
                         <div>
-                        <label id="label_mdp" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total" class="input_label">
-                            <input onblur="validation_mdp()" id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
+                        <label id="label_mdp" title="Les mots de passe ne correspondent pas" class="input_label">
+                            <input class="input_validation" onblur="validation_mdp()" id="verifmdp" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$"  required="required" type="text"  placeholder="Confirmer le mot de passe" title="Votre mot de passe doit commencer par une majuscule, doit contenir au moins 1 caractère numérique et 1 minuscule, et doit être compris entre 6 et 12 caractères au total"/>
                             <i class="input_icon fa fa-lock"></i>
                         </label>
                         </div>
@@ -64,8 +64,8 @@
                             </label>
                         </div>
                         <div class="clearfix">
-                            <label id="label_genre" for="genre" title="Vous devez chosir un sexe !">
-                                <select class="invalid" onblur="validation_sexe()" onchange="validation_sexe()" title="Vous devez chosir un sexe !" required="required" id="genre" name="Genre">
+                            <label id="label_genre" for="genre" title="Choix du sexe invalide">
+                                <select class="input_validation invalid" onblur="validation_sexe()" onchange="validation_sexe()" title="Choix du sexe non valide" required="required" id="genre" name="Genre">
                                     <option>Genre</option>
                                     <option>Homme</option>
                                     <option>Femme</option>
