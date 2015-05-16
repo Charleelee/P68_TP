@@ -15,6 +15,7 @@ function init() {
     var map_anim = document.getElementById('map');
     map_anim.addEventListener('animationend', focus_on_map);
     document.getElementById('Modalwindow').style.transition="opacity 400ms ease-in";
+    smoothscroll();
 }
 
 //La fonction focus_on_map() a pour but de center la carte sur l'ecran en forçant un scroll du body. Sans cette fonction
@@ -445,4 +446,33 @@ function affich_carte(pos) {
     google.maps.event.trigger(map, 'resize');
         document.body.scrollTop = 4500;
     }, 1500);
+}
+
+// jQuery Pour l'effet de smooth scroll
+function smoothscroll() {
+    $("#about-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#about").offset().top
+        }, 2000);
+    });
+    $("#logement-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#logement").offset().top
+        }, 2000);
+    });
+    $("#transports-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#transports").offset().top
+        }, 2000);
+    });
+    $("#alimentation-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#alimentation").offset().top
+        }, 2000);
+    });
+    $("#quotidien-button").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#quotidien").offset().top
+        }, 2000);
+    });
 }
