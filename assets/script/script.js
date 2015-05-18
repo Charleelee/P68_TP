@@ -3,7 +3,7 @@
  */
 "use strict";
 
-// Au chargement de la page on éxécute la fonction controls()
+// Au chargement de la page on éxécute la fonction init()
 document.addEventListener('DOMContentLoaded', init);
 
 //La fonction controls() à pour but de d'éxécuter la fonction focus_on_map() lors de la fin de l'animation
@@ -16,6 +16,11 @@ function init() {
     map_anim.addEventListener('animationend', focus_on_map);
     document.getElementById('Modalwindow').style.transition="opacity 400ms ease-in";
     smoothscroll();
+   //Code pour enlever les bubble
+    document.getElementById( "form1" )
+        .addEventListener( "invalid", function( event ) {
+            event.preventDefault();
+        }, true );
 }
 
 //La fonction focus_on_map() a pour but de center la carte sur l'ecran en forçant un scroll du body. Sans cette fonction
@@ -36,7 +41,7 @@ var longitude;
 //la fonction affiche_taux a pour but de modifier l'innerHTML du resultat pour donner le resultat du taux d'emission en temps
 //réel
 function affiche_taux(){
-    $('#result').html('Votre taux d\'emission de Co2 est de ' +taux+' Kg Co2 éq');
+    document.getElementById('result').innerHTML="Votre taux d\'emission de Co2 est de "+taux+" Kg Co2 éq";
 }
 
 //La fonction validation_sexe() est une fonction de validation permettant de determiner si l'utilisateur a bien choisi un sexe.
@@ -45,26 +50,26 @@ function validation_sexe() {
     var select = document.getElementById('genre');
 
     if (select.value == "Genre") {
-        document.getElementById('label_genre').className="select-invalid";
+        document.getElementById('label_genre').className="not_valid";
+        document.getElementById('genre').className = "invalid";
     } else {
         document.getElementById('label_genre').className="input_label";
-        document.getElementById('genre').required=false;
-        document.getElementById('genre').className = "input_validation valid";
+        document.getElementById('genre').className = "valid";
     }
 }
 
 //La fonction validation_mdp() sert a determiner si la valeur des deux inputs de mot passe est bien identique. Si ils ne le sont
 //pas, on effacera un des deux champs, rendant le formulaire invalide.
-function validation_mdp(){
+function validation_mdp() {
     var mdp = document.getElementById('mdp');
     var verifmdp = document.getElementById('verifmdp');
 
     if (mdp.value != verifmdp.value) {
-        document.getElementById('label_mdp').className+=" select-invalid";
+        document.getElementById('label_mdp').className = "input_label not_valid";
         verifmdp.value = "";
     }
-    else{
-        document.getElementById('label_mdp').className="input_label input_validation";
+    else {
+        document.getElementById('label_mdp').className = "input_label";
     }
 }
 
@@ -73,10 +78,12 @@ function slide() {
 
     //A l'état initial, deux fieldset différent sont afficher dans le formulaire. Il faut donc cacher ces deux fieldset
     //en leur donnant la classe "inactive" et afficher le suivant en lui donnant la classe "active"
+
     if (i == 1) {
         fieldset[i - 1].className = "inactive";
         fieldset[i].className = "inactive";
         fieldset[i + 1].className = "active";
+        document.getElementById('footer').innerHTML='<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result">'
     }
 
     //À chaque clique, i s'incrémente
@@ -125,6 +132,7 @@ function slide_back() {
         fieldset[i].className="inactive";
         fieldset[i-2].className="active";
         header.innerHTML ="Inscrivez-vous";
+        document.getElementById('footer').innerHTML='<input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result">'
     }
 
     //Sinon le fieldset sur lequel on se trouve devient inactif, et le suivant s'active
@@ -296,7 +304,7 @@ function calcul_emission_dechet(){
     var taux_non_arrondi = parseInt(taux2) + conso_dechet;
     taux3 = parseFloat(Math.round(taux_non_arrondi * 100) / 100).toFixed(2);
     taux = taux3;
-    affiche_taux_final();
+    affiche_taux();
 }
 
 //La fonction show_map() sert a géolocaliser notre utilisateur. Si son navigateur ne prends pas en charge la géolocalisation,
@@ -349,6 +357,7 @@ function affich_carte(pos) {
     //On met des marker sur notre carte a une lat/long spécfique
     var marker = new google.maps.Marker({
         position:  new google.maps.LatLng(45.548141, -73.624684),
+        map:map,
         title:"Villeray"
     });
 
@@ -403,6 +412,7 @@ function affich_carte(pos) {
 
     var marker3 = new google.maps.Marker({
         position: new google.maps.LatLng(45.523569, -73.589048),
+        map:map,
         title:"Plateau Mont-royal"
     });
 
@@ -444,7 +454,7 @@ function affich_carte(pos) {
     //Après 1.5 sec, la carte sera affiché, on va donc la rafraîchir pour s'assurer de n'avoir aucun problème d'affichage
     setTimeout(function(){
     google.maps.event.trigger(map, 'resize');
-        document.body.scrollTop = 4500;
+        document.body.scrollTop = 8500;
     }, 1500);
 }
 

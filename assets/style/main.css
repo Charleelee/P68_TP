@@ -263,6 +263,13 @@ nav ul li:hover {
 
 /* CSS du form */
 
+select{
+    color: #ababab;
+}
+option{
+    color:inherit;
+}
+
 #header {
     padding: 20px 30px;
     background-color: rgba(248,248,248,.9);
@@ -338,13 +345,6 @@ input[type=text], input[type=number],input[type=email], select{
     background: #fff;
 }
 
-input[type=submit]{
-    margin-top:0;
-    width:70px;
-    padding:0;
-    margin-left:5px;
-}
-
 input[type=number]{
     padding:0;
     padding-left:10px;
@@ -356,7 +356,7 @@ input[type=text]:invalid + .fa, input[type=email]:invalid + .fa,.invalid {
     border-left: solid 1px #ccc;
 }
 
-input[type=text]:invalid, input[type=email]:invalid{
+input[type=text]:invalid,#label_genre > input, input[type=email]:invalid{
     color: rgba(219, 70, 67, 0.87);
 }
 
@@ -368,6 +368,7 @@ input[type=text]:valid + .fa, input[type=email]:valid + .fa{
 input[type=text]:valid, input[type=email]:valid, .valid{
     background-color: #95d9a3;
     border:solid #71a37b 3px;
+    color: #000000;
     opacity: 0.5;
 }
 
@@ -382,6 +383,14 @@ input[type="button"], input[type="submit"] {
     cursor: pointer;
     background-color: #2da5da;
 }
+
+input[type=submit]{
+    margin-top:0;
+    width:70px;
+    padding:0;
+    margin-left:5px;
+}
+
 
 input[type="button"]{
     margin:0;
@@ -468,14 +477,14 @@ input[type="radio"]{
     display:inline;
 }
 
-.select-invalid:after {
+.not_valid:after {
     content:attr(title);
     z-index: 1;
     padding: 2px 10px 3px;
     font-size: 11px;
     font-weight: 400;
     background: rgba(132, 21, 12, 0.93);
-    border:solid #494949 px;
+    border:solid #494949 1px;
     box-shadow:2px 2px 2px black;
     color: #fff;
 }
@@ -509,6 +518,9 @@ section.map, #mapdisplay > p {
     -webkit-animation-fill-mode: forwards;
     -moz-animation-iteration-count: 1;
     -webkit-animation-iteration-count: 1;
+    -webkit-animation-name: scroll;
+    -webkit-animation-duration: 3s;
+    animation-name: scroll;
     animation-name: scroll;
     animation-duration: 3s;
 }
@@ -565,3 +577,7 @@ section.map, #mapdisplay > p {
         height:350px;
     }
  }
+
+form::-webkit-validation-bubble{
+    display:none;
+}

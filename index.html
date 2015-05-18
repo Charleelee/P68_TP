@@ -65,7 +65,7 @@
                         </div>
                         <div class="clearfix">
                             <label id="label_genre" for="genre" title="Choix du sexe invalide">
-                                <select class="input_validation invalid" onblur="validation_sexe()" onchange="validation_sexe()" title="Choix du sexe non valide" required="required" id="genre" name="Genre">
+                                <select class="input_validation" onblur="validation_sexe()" onchange="validation_sexe()" title="Choix du sexe non valide" required="required" id="genre" name="Genre">
                                     <option>Genre</option>
                                     <option>Homme</option>
                                     <option>Femme</option>
@@ -128,11 +128,10 @@
                             <input oninput="calcul_emission_dechet()" id="recyclage" type="number" value="0"/>
                         </label>
                         <label for="enfouissement" class="input_label">Matières déstinées a l'enfouissement ( Kg ) :
-                            <input oninput="calcul_emission_dechet()" id="enfouissement" type="number" value="0"/>
+                            <input required="required" oninput="calcul_emission_dechet()" id="enfouissement" type="number"/>
                         </label>
                     </fieldset>
-                    <footer id="footer">
-                        <input id="prev" onclick="slide_back()" type="button" value="Précédent"/><input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result"></p>
+                    <footer id="footer"><input id="next" onclick="slide()" type="button" value="Suivant"/><p id="result"></p>
                     </footer>
                 </form>
             </div>
