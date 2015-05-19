@@ -489,6 +489,10 @@ input[type="radio"]{
     color: #fff;
 }
 
+.FadeIn {
+   transition:opacity 400ms ease-in;
+}
+
 /* CSS de la map */
 
 #error {
@@ -509,8 +513,6 @@ section.map, #mapdisplay > p {
 #legend {
     background: white;
     padding: 10px;
-    display: none;
-
 }
 .animate {
     animation-fill-mode: forwards;
@@ -520,7 +522,6 @@ section.map, #mapdisplay > p {
     -webkit-animation-iteration-count: 1;
     -webkit-animation-name: scroll;
     -webkit-animation-duration: 3s;
-    animation-name: scroll;
     animation-name: scroll;
     animation-duration: 3s;
 }

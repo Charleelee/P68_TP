@@ -6,17 +6,14 @@
 // Au chargement de la page on éxécute la fonction init()
 document.addEventListener('DOMContentLoaded', init);
 
-//La fonction controls() à pour but de d'éxécuter la fonction focus_on_map() lors de la fin de l'animation
-//qui agrandit le container de la carte Google Maps.
-//Elle donne un effet de transition a l'ID Modalwindow, sans quoi, au chargement de la page, lorsque ce container
-//apparaissait en opacity:0, une transition se faisait du 1 vers le 0, affichant pendant un bref moment le modalwindow.
 function init() {
     console.log('f control loaded');
-    var map_anim = document.getElementById('map');
-    map_anim.addEventListener('animationend', focus_on_map);
-    document.getElementById('Modalwindow').style.transition="opacity 400ms ease-in";
+    //On ajoute la classe FadeIn au modalwindow, qui est responsable de la transition
+    document.getElementById('Modalwindow').className="FadeIn Modaldialog";
+    document.getElementById('legend').className='inactive';
+    //On 'active' le smoothscroll
     smoothscroll();
-   //Code pour enlever les bubble
+   //Code pour enlever les bubble de validation de Chrome
     document.getElementById( "form1" )
         .addEventListener( "invalid", function( event ) {
             event.preventDefault();
@@ -112,7 +109,7 @@ function slide() {
         header.innerHTML  = "Étape 3/3 : Matières résiduelles";
         affiche_taux();
         var next = document.getElementById('next');
-        next.onclick='';
+        next.onclick=void false;
         next.type="submit";
         next.value="Soumettre";
         next.id='submit';
@@ -311,7 +308,7 @@ function calcul_emission_dechet(){
 //Ou bien si il décline l'autorisation d'accèder a sa position, il recevra un message d'erreur en fonction. Si le navigateur prends
 //en charge la géolocalisation et qu'il a accepté de partager sa position, alors on éxécutera la fonction affich_carte()
 function show_map(){
-    document.getElementById('mapdisplay').style.display="none";
+    document.getElementById('mapdisplay').className="inactive";
     console.log('google map branché');
 
     //On vérifie si le navigateur prends en charge la géolocalisation et va éxécuter une fonction en conséquence
@@ -441,7 +438,7 @@ function affich_carte(pos) {
     circle2.bindTo('center', marker2, 'position');
     circle3.bindTo('center', marker3, 'position');
     //Le containter pour la legend devient visible une fois que la map s'est chargé avec tout les paramètre
-    document.getElementById('legend').style.display='block';
+    document.getElementById('legend').className='active';
 
     //On attache la légend de la map dans le coin inférieur droit
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
@@ -451,11 +448,10 @@ function affich_carte(pos) {
     var map1 = document.getElementById('map');
     map1.className='animate';
 
-    //Après 1.5 sec, la carte sera affiché, on va donc la rafraîchir pour s'assurer de n'avoir aucun problème d'affichage
+    //Après 1 sec, la carte sera affiché, on va donc la rafraîchir pour s'assurer de n'avoir aucun problème d'affichage
     setTimeout(function(){
     google.maps.event.trigger(map, 'resize');
-        document.body.scrollTop = 8500;
-    }, 1500);
+    }, 1000);
 }
 
 // jQuery Pour l'effet de smooth scroll
